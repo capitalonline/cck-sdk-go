@@ -41,6 +41,10 @@ func NewRequest(action, method string, params map[string]string, productType str
 }
 
 func DoRequest(req *CloudRequest) (resp *http.Response, err error) {
+	if !IsAccessKeySet() {
+		return nil, fmt.Errorf("AccessKeyID or accessKeySecret is empty")
+	}
+
 	reqUrl := getUrl(req)
 	sendRequest, err := http.NewRequest(req.method, reqUrl, req.body)
 	if err != nil {

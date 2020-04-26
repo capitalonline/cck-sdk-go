@@ -2,8 +2,6 @@ package cck
 
 import (
 	"os"
-
-	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -42,11 +40,8 @@ func init() {
 	if APIHost == "" {
 		APIHost = defaultApiHost
 	}
+}
 
-	if AccessKeyID == "" {
-		log.Fatal("fatal error: AccessKeyID is empty")
-	}
-	if AccessKeySecret == "" {
-		log.Fatal("fatal error: AccessKeySecret is empty")
-	}
+func IsAccessKeySet() bool {
+	return AccessKeyID != "" && AccessKeySecret != ""
 }
