@@ -1,4 +1,4 @@
-package cck
+package common
 
 import (
 	"os"

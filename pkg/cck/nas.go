@@ -3,6 +3,7 @@ package cck
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/capitalonline/cck-sdk-go/pkg/common"
 	"io/ioutil"
 	"net/http"
 )
@@ -15,12 +16,12 @@ func MountNas(nasID, clusterID string) (*MountNasResponse, error) {
 		nasID,
 		clusterID,
 	}
-	body, err := MarshalJsonToIOReader(payload)
+	body, err := common.MarshalJsonToIOReader(payload)
 	if err != nil {
 		return nil, err
 	}
-	req, err := NewCCKRequest(ActionMountNas, http.MethodPost, nil, body)
-	response, err := DoRequest(req)
+	req, err := common.NewCCKRequest(common.ActionMountNas, http.MethodPost, nil, body)
+	response, err := common.DoRequest(req)
 	if err != nil {
 		return nil, err
 	}
