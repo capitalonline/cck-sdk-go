@@ -18,6 +18,11 @@ const (
 
 const (
 	ActionMountNas = "MountNas"
+	ActionUnMountNas = "UnMountNas"
+	ActionDescribeNasInstances = "DescribeNasInstances"
+	ActionCreateNas = "CreateNas"
+	ActionResizeNas = "ResizeNas"
+	ActionDeleteNas = "DeleteNas"
 )
 
 var (
