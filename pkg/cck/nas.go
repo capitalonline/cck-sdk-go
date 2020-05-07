@@ -8,13 +8,13 @@ import (
 	"net/http"
 )
 
-func DescribeNasInstances(nasID, nasName, nasSiteID, clusterID string, usageFlag bool, pageNumber, pageSize int) (*DescribeNasInstancesResponse, error) {
+func DescribeNasInstances(nasID, nasName, nasSiteID, clusterID string, usageFlag, pageNumber, pageSize int) (*DescribeNasInstancesResponse, error) {
 	payload := struct {
 		NasID		string`json:"NasId,omitempty"`
 		NasName		string`json:"NasName,omitempty"`
 		SiteID		string`json:"SiteId,omitempty"`
 		ClusterID 	string`json:"ClusterId,omitempty"`
-		UsageFlag	bool`json:"UsageFlag,omitempty"`
+		UsageFlag	int`json:"UsageFlag,omitempty"`
 		PageNumber	int`json:"PageNumber,omitempty"`
 		PageSize	int`json:"PageSize,omitempty"`
 	}{
