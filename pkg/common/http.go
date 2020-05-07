@@ -59,9 +59,9 @@ func getUrl(req *CloudRequest) string {
 	urlParams := map[string]string{
 		"Action":           req.action,
 		"AccessKeyId":      AccessKeyID,
-		"signatureMethod":  signatureMethod,
+		"SignatureMethod":  signatureMethod,
 		"SignatureNonce":   uuid.New().String(),
-		"signatureVersion": signatureVersion,
+		"SignatureVersion": signatureVersion,
 		"Timestamp":        time.Now().UTC().Format(timeStampFormat),
 		"Version":          version,
 	}
