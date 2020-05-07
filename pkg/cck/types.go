@@ -11,8 +11,8 @@ type DescribeNasInstanceSlice struct {
 	SiteID 		string`json:"site_id"`
 	ClusterID 	string`json:"cluster_id"`
 	DiskType 	string`json:"disk_type"`
-	Iops 		string`json:"iops"`
-	Size 		string`json:"size"`
+	Iops 		int`json:"iops"`
+	Size 		int`json:"size"`
 	Status 		string`json:"status"`
 	CreateTime	string`json:"create_time"`
 	StorageVmId string`json:"storage_vm_id"`
