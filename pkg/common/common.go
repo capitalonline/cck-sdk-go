@@ -9,15 +9,20 @@ const (
 	apiHostLiteral         = "API_HOST"
 	accessKeyIdLiteral     = "ACCESS_KEY_ID"
 	accessKeySecretLiteral = "ACCESS_KEY_SECRET"
-	cckProductType         = "CCK"
-	version                = "2020-05-30"
+	cckProductType         = "cck"
+	version                = "2019-08-08"
 	signatureVersion       = "1.0"
 	signatureMethod        = "HMAC-SHA1"
 	timeStampFormat        = "2006-01-02T15:04:05Z"
 )
 
 const (
+	ActionDescribeNasInstances = "DescribeNasInstances"
 	ActionMountNas = "MountNas"
+	ActionUmountNas = "UmountNas"
+	ActionCreateNas = "CreateNas"
+	ActionResizeNas = "ResizeNas"
+	ActionDeleteNas = "DeleteNas"
 )
 
 var (
