@@ -19,7 +19,7 @@ go get -u github.com/capitalonline/cck-sdk-go
 
 容器启动 yaml 中配置环境变量（用户的认证信息）：
 
-```reStructuredText
+```text
 ACCESS_KEY_ID = "***"	
 ACCESS_KEY_SECRET = "***"
 ```
@@ -50,10 +50,10 @@ func main() {
 
 ## 1.DescribeNasInstances 函数
 
-**Action: **DescribeNasInstances
-**描述：**查询文件存储(以下简称nas)详细信息
-**请求方法：**POST
-**请求参数：**
+Action: DescribeNasInstances \
+描述：查询文件存储(以下简称nas)详细信息 \
+请求方法：POST \
+请求参数：\
 
 | **参数** | **是否必选** | **类型** | **实例值** | **描述** |
 | --- | --- | --- | --- | --- |
@@ -64,7 +64,8 @@ func main() {
 | UsageFlag | 否 | int | *** | 是否返回使用量 |
 | PageNumber | 否 | int | *** | 页码 |
 | PageSize | 否 | int | *** | 每页条目数 |
-**返回数据：**
+
+返回参数：
 
 | **名称** | **类型** | **示例值** | **描述** |
 | --- | --- | --- | --- |
@@ -87,7 +88,8 @@ func main() {
 | backup_disk_mount_path | string | /nfsshare | nas实例磁盘挂载路径 |
 | usage | string | 0.08 | nas实例磁盘使用量 |
 | usage_rate | string | 1% | nas实例磁盘使用量比率 |
-**返回数据**
+
+返回示例：
 
 ```json
 {
@@ -138,10 +140,10 @@ func main() {
 
 ## 2. CreateNas 函数
 
-**Action: **CreateNas
-**描述：**创建Nas实例
-**请求方法：**POST
-**请求参数：**
+Action: CreateNas \
+描述：创建Nas实例 \
+请求方法：POST \
+请求参数： \
 
 | **名称** | **外部名称** | **是否必选** | **类型** | **实例值** | **描述** |
 | --- | --- | --- | --- | --- | --- |
@@ -150,14 +152,14 @@ func main() {
 | disk_type | DiskTpye | 是 | string | high_disk | 磁盘类型 |
 | disk_size | DiskSize | 是 | string | 500 | 磁盘大小 |
 
-**返回参数：**
+返回参数：
 
 | **名称** | **类型** | **示例值** | **描述** |
 | --- | --- | --- | --- |
 | code | string | Success | 错误码 |
 | task_id | string | 17b2a6f8-78cd-11ea-b1f2-169433ed6e42 | 任务id |
 
-**返回示例**
+返回示例：
 ```json
 {
   "code": "Success",
@@ -169,10 +171,10 @@ func main() {
 
 ## 3. ResizeNas 函数
 
-**Action: **ResizeNas
-**描述：**扩容Nas实例大小
-**请求方法：**POST
-**请求参数：**
+Action: ResizeNas \
+描述：扩容Nas实例大小 \
+请求方法：POST \
+请求参数：
 
 | **名称** | **外部名称** | **是否必选** | **类型** | **实例值** | **描述** |
 | --- | --- | --- | --- | --- | --- |
@@ -180,14 +182,14 @@ func main() {
 | nas_id | NasId | 是 | string | 5f19a292-759b-11ea-aaa6-0242ac110230 | Nas实例id |
 | disk_size | DiskSize | 是 | string | 1000 | Nas实例磁盘大小（单位为G） |
 
-**返回参数：**
+返回参数：
 
 | **名称** | **类型** | **示例值** | **描述** |
 | --- | --- | --- | --- |
 | code | string | Success | 错误码 |
 | task_id | string | 17b2a6f8-78cd-11ea-b1f2-169433ed6e42 | 任务id |
 
-**返回示例**
+返回示例:
 ```json
 {
   "code": "Success",
@@ -199,22 +201,22 @@ func main() {
 
 ## 4. DeleteNas 函数
 
-**Action: **DeleteNas
-**描述：**删除Nas实例
-**请求方法：**POST
-**请求参数：**
+Action: DeleteNas \
+描述：删除Nas实例\
+请求方法：**POST \
+请求参数： \
 
 | **名称** | **外部名称** | **是否必选** | **类型** | **实例值** | **描述** |
 | --- | --- | --- | --- | --- | --- |
 | nas_id | NasId | 是 | string | 5f19a292-759b-11ea-aaa6-0242ac110230 | Nas实例id |
 
-**返回参数：**
+返回参数：
 
 | **名称** | **类型** | **示例值** | **描述** |
 | --- | --- | --- | --- |
 | code | string | Success | 错误码 |
 
-**返回示例**
+返回示例:
 ```json
 {
   "code": "Success",
@@ -223,24 +225,24 @@ func main() {
 
 ## 5. MountNas 函数
 
-**Action: **MountNas
-**描述：**挂载Nas实例
-**请求方法：**POST
-**请求参数：**
+Action: MountNas \
+描述：挂载Nas实例 \
+请求方法：POST \
+请求参数：\
 
 | **名称** | **外部名称** | **是否必选** | **类型** | **实例值** | **描述** |
 | --- | --- | --- | --- | --- | --- |
 | nas_id | NasId | 是 | string | 5f19a292-759b-11ea-aaa6-0242ac110230 | Nas实例id |
 | cluster_id | ClusterId | 是 | string | b62129e8-7596-11ea-b79c-0242ac11021e | 集群id |
 
-**返回参数：**
+返回参数：
 
 | **名称** | **类型** | **示例值** | **描述** |
 | --- | --- | --- | --- |
 | code | string | Success | 错误码 |
 | task_id | stirng | 17b2a6f8-78cd-11ea-b1f2-169433ed6e42 | 任务id |
 
-**返回示例**
+返回示例
 ```json
 {
   "code": "Success",
@@ -252,23 +254,23 @@ func main() {
 
 ## 6. UmountNas 函数
 
-**Action: **UmountNas
-**描述：**卸载Nas实例
-**请求方法：**POST
-**请求参数：**
+Action: UmountNas \
+描述：卸载Nas实例 \
+请求方法：POST \
+请求参数： \
 
 | **名称** | **外部名称** | **是否必选** | **类型** | **实例值** | **描述** |
 | --- | --- | --- | --- | --- | --- |
 | nas_id | NasId | 是 | string | 5f19a292-759b-11ea-aaa6-0242ac110230 | Nas实例id |
 
-**返回参数：**
+返回参数：
 
 | **名称** | **类型** | **示例值** | **描述** |
 | --- | --- | --- | --- |
 | code | string | Success | 错误码 |
 | task_id | stirng | 17b2a6f8-78cd-11ea-b1f2-169433ed6e42 | 任务id |
 
-**返回示例**
+返回示例:
 ```json
 {
   "code": "Success",
