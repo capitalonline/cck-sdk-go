@@ -17,8 +17,7 @@ go get -u github.com/capitalonline/cck-sdk-go
 
 # SDK 使用说明
 
-容器启动 yaml 中配置环境变量（用户的认证信息）：
-
+用户认证信息配置：环境变量中配置或者代码中直接配置
 ```text
 ACCESS_KEY_ID = "***"	
 ACCESS_KEY_SECRET = "***"
@@ -37,11 +36,11 @@ import (
 func main() {
     // MountNas usage example 
     nasID := "340d569c-7899-11ea-a06c-82b0d54620aa"
-	clusterID := "3b02449e-8843-11ea-988c-0242ac11034c"
-	res, err := nas.MountNas(nasID, clusterID)
+    clusterID := "3b02449e-8843-11ea-988c-0242ac11034c"
+    res, err := nas.MountNas(nasID, clusterID)
     if err != nil {
-		log.Errorf("Failed, err is: %s", err.Error())
-	}
+	log.Errorf("Failed, err is: %s", err.Error())
+    }
     task_id = res.data.TaskId
 }
 ```
@@ -203,7 +202,7 @@ Action: ResizeNas \
 
 Action: DeleteNas \
 描述：删除Nas实例\
-请求方法：**POST \
+请求方法：POST \
 请求参数： 
 
 | **名称** | **外部名称** | **是否必选** | **类型** | **实例值** | **描述** |
