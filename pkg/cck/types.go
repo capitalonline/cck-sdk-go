@@ -62,6 +62,12 @@ type UnMountNasResponse struct {
 	} `json:"Data"`
 }
 
+type DescribeTaskStatusResponse struct {
+	BaseResponse
+	Data struct {
+		Status string `json:"status"`
+	} `json:"Data"`
+}
 
 
 

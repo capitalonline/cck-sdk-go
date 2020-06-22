@@ -23,6 +23,7 @@ const (
 	ActionCreateNas = "CreateNas"
 	ActionResizeNas = "ResizeNas"
 	ActionDeleteNas = "DeleteNas"
+	ActionTaskStatus = "CheckNasTaskStatus"
 )
 
 var (
