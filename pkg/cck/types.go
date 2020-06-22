@@ -28,14 +28,15 @@ type DescribeNasInstancesResponse struct {
 	Data struct {
 		NasInfo []DescribeNasInstanceSlice `json:"nas_info"`
 		Total int `json:"total"`
-	} `json:"data"`
+	} `json:"Data"`
 }
 
 type CreateNasResponse struct {
 	BaseResponse
 	Data struct {
-		TaskId string `json:"task_id"`
-	} `json:"data"`
+		TaskID string `json:"TaskId"`
+		NasID  string `json:"nas_id"`
+	} `json:"Data"`
 }
 
 type ResizeNasResponse struct {
@@ -49,17 +50,24 @@ type DeleteNasResponse struct {
 type MountNasResponse struct {
 	BaseResponse
 	Data struct {
-		TaskId string `json:"task_id"`
-	} `json:"data"`
+		TaskID string `json:"TaskId"`
+		NasIP  string `json:"nas_ip"`
+	} `json:"Data"`
 }
 
 type UnMountNasResponse struct {
 	BaseResponse
 	Data struct {
-		TaskId string `json:"task_id"`
-	} `json:"data"`
+		TaskID string `json:"TaskId"`
+	} `json:"Data"`
 }
 
+type DescribeTaskStatusResponse struct {
+	BaseResponse
+	Data struct {
+		Status string `json:"status"`
+	} `json:"Data"`
+}
 
 
 
