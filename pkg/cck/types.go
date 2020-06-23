@@ -33,8 +33,8 @@ type DescribeNasInstancesResponse struct {
 
 type CreateNasResponse struct {
 	BaseResponse
+	TaskID string `json:"TaskId"`
 	Data struct {
-		TaskID string `json:"TaskId"`
 		NasID  string `json:"nas_id"`
 	} `json:"Data"`
 }
@@ -49,17 +49,16 @@ type DeleteNasResponse struct {
 
 type MountNasResponse struct {
 	BaseResponse
+	TaskID string `json:"TaskId"`
 	Data struct {
-		TaskID string `json:"TaskId"`
 		NasIP  string `json:"nas_ip"`
 	} `json:"Data"`
+
 }
 
 type UnMountNasResponse struct {
 	BaseResponse
-	Data struct {
-		TaskID string `json:"TaskId"`
-	} `json:"Data"`
+	TaskID string `json:"TaskId"`
 }
 
 type DescribeTaskStatusResponse struct {
