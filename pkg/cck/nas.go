@@ -45,12 +45,12 @@ func DescribeNasInstances(nasID, nasName, nasSiteID, clusterID string, usageFlag
 	return res, err
 }
 
-func CreateNas(nasSiteID, nasName, diskType, diskSize string) (*CreateNasResponse, error) {
+func CreateNas(nasSiteID, nasName, diskType string, diskSize int) (*CreateNasResponse, error) {
 	payload := struct {
 		NasSiteID	string`json:"SiteId"`
 		NasName		string`json:"NasName"`
 		DiskType 	string`json:"DiskType"`
-		DiskSize 	string`json:"DiskSize"`
+		DiskSize 	int`json:"DiskSize"`
 	}{
 		nasSiteID,
 		nasName,
