@@ -43,6 +43,16 @@ type FindDiskByVolumeIDResponse struct {
 	} `json:"Data"`
 }
 
+type FindDeviceNameByVolumeIDArgs struct {
+	VolumeID	string`json:"volume_id"`
+}
+type FindDeviceNameByVolumeIDResponse struct {
+	Response
+	Data struct {
+		DeviceName string`json:"device_name"`
+	} `json:"Data"`
+}
+
 type CreateDiskArgs struct {
 	ClusterID  string`json:"cluster_id"`
 	RegionID   string`json:"region_id"`
