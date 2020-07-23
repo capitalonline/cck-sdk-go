@@ -10,7 +10,7 @@ const (
 	apiHostLiteral         = "API_HOST"
 	accessKeyIdLiteral     = "ACCESS_KEY_ID"
 	accessKeySecretLiteral = "ACCESS_KEY_SECRET"
-	overseaFlag			   = "CDS_OVERSEA"
+	overseaFlag            = "CDS_OVERSEA"
 	cckProductType         = "cck"
 	version                = "2019-08-08"
 	signatureVersion       = "1.0"
@@ -20,12 +20,12 @@ const (
 
 const (
 	ActionDescribeNasInstances = "DescribeNasInstances"
-	ActionMountNas = "MountNas"
-	ActionUmountNas = "UmountNas"
-	ActionCreateNas = "CreateNas"
-	ActionResizeNas = "ResizeNas"
-	ActionDeleteNas = "DeleteNas"
-	ActionTaskStatus = "CheckNasTaskStatus"
+	ActionMountNas             = "MountNas"
+	ActionUmountNas            = "UmountNas"
+	ActionCreateNas            = "CreateNas"
+	ActionResizeNas            = "ResizeNas"
+	ActionDeleteNas            = "DeleteNas"
+	ActionTaskStatus           = "CheckNasTaskStatus"
 )
 
 var (
@@ -46,9 +46,9 @@ func init() {
 	}
 
 	// True is oversea cluster; False is domestic cluster
-	if os.Getenv(overseaFlag) == "True" &&  APIHost == "" {
+	if os.Getenv(overseaFlag) == "True" && APIHost == "" {
 		APIHost = defaultApiHostOversea
-	} else if os.Getenv(overseaFlag) == "False" &&  APIHost == "" {
+	} else if os.Getenv(overseaFlag) == "False" && APIHost == "" {
 		APIHost = defaultApiHost
 	}
 }
