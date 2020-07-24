@@ -16,11 +16,11 @@ func TestCreateDisk(t *testing.T) {
 	// api request
 	res, err := CreateDisk(&CreateDiskArgs{
 		ClusterID: clusterID,
-		RegionID: regionID,
-		Fstype: fstype,
-		Type: diskType,
+		RegionID:  regionID,
+		Fstype:    fstype,
+		Type:      diskType,
 		RequestGB: requestGB,
-		ReadOnly: readOnly,
+		ReadOnly:  readOnly,
 	})
 
 	if err != nil {
@@ -48,7 +48,7 @@ func TestAttachDisk(t *testing.T) {
 	// api request
 	res, err := AttachDisk(&AttachDiskArgs{
 		VolumeID: volumeID,
-		NodeID: nodeID,
+		NodeID:   nodeID,
 	})
 
 	// result
@@ -70,7 +70,7 @@ func TestDetachDisk(t *testing.T) {
 	// api request
 	res, err := DetachDisk(&DetachDiskArgs{
 		VolumeID: volumeID,
-		NodeID: nodeID,
+		NodeID:   nodeID,
 	})
 
 	// result
@@ -123,7 +123,7 @@ func TestFindDiskByVolumeID(t *testing.T) {
 
 }
 
-func TestFindDeviceNameByVolumeID (t *testing.T) {
+func TestFindDeviceNameByVolumeID(t *testing.T) {
 	// params
 	volumeID := ""
 
