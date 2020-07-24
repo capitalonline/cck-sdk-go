@@ -25,7 +25,7 @@ type DetachDiskResponse struct {
 }
 
 type DeleteDiskArgs struct {
-	DiskID		string`json:"disk_id"`
+	VolumeID	string`json:"disk_id"`
 }
 type DeleteDiskResponse struct {
 	Response
