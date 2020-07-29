@@ -54,6 +54,7 @@ type FindDeviceNameByVolumeIDResponse struct {
 }
 
 type CreateDiskArgs struct {
+	Name      string `json:"name"`
 	ClusterID string `json:"cluster_id"`
 	RegionID  string `json:"region_id"`
 	Fstype    string `json:"fstype"`
