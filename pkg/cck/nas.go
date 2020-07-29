@@ -45,17 +45,19 @@ func DescribeNasInstances(nasID, nasName, nasSiteID, clusterID string, usageFlag
 	return res, err
 }
 
-func CreateNas(nasSiteID, nasName, diskType string, diskSize int) (*CreateNasResponse, error) {
+func CreateNas(nasSiteID, nasName, diskType string, diskSize, isNotShared int) (*CreateNasResponse, error) {
 	payload := struct {
 		NasSiteID	string`json:"SiteId"`
 		NasName		string`json:"NasName"`
 		DiskType 	string`json:"DiskType"`
 		DiskSize 	int`json:"DiskSize"`
+		UnsharedFlag int`json:"UnsharedFlag"`
 	}{
 		nasSiteID,
 		nasName,
 		diskType,
 		diskSize,
+		isNotShared,
 	}
 	body, err := common.MarshalJsonToIOReader(payload)
 	if err != nil {
