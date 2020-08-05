@@ -35,8 +35,8 @@ func TestCreateNas(t *testing.T){
 	nasSiteID := "c4089dcd-15c2-4caf-9d1e-874770a31880"
 	nasName := "test-go-sdk"
 	diskType := "high_disk"
-	diskSize := "500"
-	_, err := CreateNas(nasSiteID, nasName, diskType, diskSize)
+	diskSize := 500
+	_, err := CreateNas(nasSiteID, nasName, diskType, diskSize, 1)
 	if err != nil {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
@@ -79,4 +79,19 @@ func TestResizeNas(t *testing.T){
 	if err != nil {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
+}
+
+func TestDescribeNasUsage(t *testing.T) {
+	// cluserID, nasIP
+	clusterID := ""
+	nasIP := ""
+
+	res, err := DescribeNasUsage(clusterID, nasIP)
+	if err != nil {
+		t.Errorf("Failed, err is: %s", err.Error())
+	}
+	if res.Data.NasInfo[0].UsageRate == "" {
+		t.Errorf("Failed, UsageRate excepts not empty, but actual is empty ")
+	}
+
 }
