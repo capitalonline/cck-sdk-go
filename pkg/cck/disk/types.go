@@ -38,7 +38,7 @@ type FindDiskByVolumeIDArgs struct {
 type FindDiskByVolumeIDResponse struct {
 	Response
 	Data struct {
-		InstanceID string `json:"instance_id"`
+		NodeID string `json:"instance_id"`
 		Status     string `json:"status"`
 	} `json:"Data"`
 }
@@ -60,7 +60,7 @@ type CreateDiskArgs struct {
 	Fstype      string `json:"fstype"`
 	StorageType string `json:"storage_type"`
 	RequestGB   int    `json:"requestGB"`
-	ReadOnly    bool   `json:"read_only"`
+	ZoneID      string `json:"zone_id"`
 }
 type CreateDiskResponse struct {
 	Response
