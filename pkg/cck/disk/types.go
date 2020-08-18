@@ -12,7 +12,7 @@ type AttachDiskArgs struct {
 }
 type AttachDiskResponse struct {
 	Response
-	TaskID string `json:"taskID"`
+	TaskID string `json:"TaskId"`
 }
 
 type DetachDiskArgs struct {
@@ -20,19 +20,19 @@ type DetachDiskArgs struct {
 }
 type DetachDiskResponse struct {
 	Response
-	TaskID string `json:"taskID"`
+	TaskID string `json:"TaskId"`
 }
 
 type DeleteDiskArgs struct {
-	VolumeID string `json:"disk_id"`
+	VolumeID string `json:"block_id"`
 }
 type DeleteDiskResponse struct {
 	Response
-	TaskID string `json:"taskID"`
+	TaskID string `json:"TaskId"`
 }
 
 type FindDiskByVolumeIDArgs struct {
-	VolumeID string `json:"disk_id"`
+	VolumeID string `json:"block_id"`
 }
 
 type DiskInfo struct {
@@ -67,7 +67,7 @@ type CreateDiskResponse struct {
 	Data struct {
 		VolumeID string `json:"block_id"`
 	} `json:"Data"`
-	TaskId string `json:"TaskId"`
+	TaskID string `json:"TaskId"`
 }
 
 type DescribeTaskStatusResponse struct {
