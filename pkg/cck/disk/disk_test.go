@@ -6,21 +6,21 @@ import (
 
 func TestCreateDisk(t *testing.T) {
 	// params
-	clusterID := ""
+	name := ""
 	regionID := ""
-	fstype := ""
+	iops := 3000
 	diskType := ""
-	requestGB := 500
-	readOnly := false
+	sise := 500
+	zoneID := ""
 
 	// api request
 	res, err := CreateDisk(&CreateDiskArgs{
-		ClusterID: clusterID,
-		RegionID:  regionID,
-		Fstype:    fstype,
-		Type:      diskType,
-		RequestGB: requestGB,
-		ReadOnly:  readOnly,
+		Name:     name,
+		RegionID: regionID,
+		DiskType: diskType,
+		Iops:     iops,
+		Size:     sise,
+		ZoneID:   zoneID,
 	})
 
 	if err != nil {
@@ -33,9 +33,14 @@ func TestCreateDisk(t *testing.T) {
 	}
 
 	// check DescribeTaskStatus
-	_, err = DescribeTaskStatus(res.TaskID)
+	resStatus, err := DescribeTaskStatus(res.TaskID)
 	if err != nil {
 		t.Errorf("Failed, err is: %s", err.Error())
+	}
+
+	// check status
+	if resStatus.Data.Status == "" {
+		t.Errorf("Failed, Status is empty")
 	}
 
 }
@@ -65,12 +70,10 @@ func TestAttachDisk(t *testing.T) {
 func TestDetachDisk(t *testing.T) {
 	// params
 	volumeID := ""
-	nodeID := ""
 
 	// api request
 	res, err := DetachDisk(&DetachDiskArgs{
 		VolumeID: volumeID,
-		NodeID:   nodeID,
 	})
 
 	// result
@@ -117,28 +120,9 @@ func TestFindDiskByVolumeID(t *testing.T) {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	if res.Data.InstanceID == "" || res.Data.Status == "" {
-		t.Errorf("Failed, [InstanceID/Status] is empty, but expectation is not empty")
+	if res.Data[0].NodeID == "" || res.Data[0].Status == "" || res.Data[0].Uuid == "" {
+		t.Errorf("Failed, [NodeID/Status] is empty, but expectation is not empty")
 	}
 
 }
 
-func TestFindDeviceNameByVolumeID(t *testing.T) {
-	// params
-	volumeID := ""
-
-	// api request
-	res, err := FindDeviceNameByVolumeID(&FindDeviceNameByVolumeIDArgs{
-		VolumeID: volumeID,
-	})
-
-	// result
-	if err != nil {
-		t.Errorf("Failed, err is: %s", err.Error())
-	}
-
-	if res.Data.DeviceName == "" {
-		t.Errorf("Failed, [DeviceName] is empty, but expectation is not empty")
-	}
-
-}
