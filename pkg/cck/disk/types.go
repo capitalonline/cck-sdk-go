@@ -38,7 +38,7 @@ type FindDiskByVolumeIDArgs struct {
 type DiskInfo struct {
 	NodeID string `json:"node_id"`
 	Status string `json:"status"`
-	Uuid   string `json:"uuid"`
+	Uuid   string `json:"disk_uuid"`
 }
 type FindDiskByVolumeIDResponse struct {
 	Response
