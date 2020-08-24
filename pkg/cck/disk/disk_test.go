@@ -139,8 +139,6 @@ func TestDescribeTaskStatus(t *testing.T) {
 	// check status
 	if res.Data.Status == "" {
 		t.Errorf("Failed, Status is empty")
-
-
-
 	}
 
+}
