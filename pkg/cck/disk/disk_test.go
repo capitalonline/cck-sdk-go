@@ -126,3 +126,21 @@ func TestFindDiskByVolumeID(t *testing.T) {
 
 }
 
+func TestDescribeTaskStatus(t *testing.T) {
+	// params
+	taskID := "c971c21c-e5f0-11ea-a2ed-7abe85ed524b"
+
+	// api request
+	res, err := DescribeTaskStatus(taskID)
+	if err != nil {
+		t.Errorf("Failed, err is: %s", err.Error())
+	}
+
+	// check status
+	if res.Data.Status == "" {
+		t.Errorf("Failed, Status is empty")
+
+
+
+	}
+
