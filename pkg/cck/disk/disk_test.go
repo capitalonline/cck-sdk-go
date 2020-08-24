@@ -6,12 +6,12 @@ import (
 
 func TestCreateDisk(t *testing.T) {
 	// params
-	name := ""
-	regionID := ""
+	name := "testing-go-test-001"
+	regionID := "c2bfebe1-63e7-48b1-86df-e7a0b2c44ed0"
 	iops := 3000
-	diskType := ""
+	diskType := "high_disk"
 	sise := 500
-	zoneID := ""
+	zoneID := "POD39-CLU03"
 
 	// api request
 	res, err := CreateDisk(&CreateDiskArgs{

@@ -29,7 +29,7 @@ const (
 	ActionTaskStatus = "CheckNasTaskStatus"
 
 	// Disk
-	ActionCreateDisk = "CreateDisk"
+	ActionCreateDisk = "CreateBlock"
 	ActionAttachDisk = "AttachDisk"
 	ActionDetachDisk = "DetachDisk"
 	ActionDeleteDisk = "DeleteDisk"
