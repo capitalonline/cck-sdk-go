@@ -124,7 +124,7 @@ func DeleteDisk(args *DeleteDiskArgs) (*DeleteDiskResponse, error) {
 }
 
 func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDResponse, error) {
-	log.Infof("api:: AttachDisk")
+	log.Infof("api:: FindDiskByVolumeID")
 
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
