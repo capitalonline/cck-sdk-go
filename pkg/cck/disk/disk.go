@@ -68,7 +68,7 @@ func AttachDisk(args *AttachDiskArgs) (*AttachDiskResponse, error) {
 }
 
 func DetachDisk(args *DetachDiskArgs) (*DetachDiskResponse, error) {
-	log.Infof("api:: AttachDisk")
+	log.Infof("api:: DetachDisk")
 
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
@@ -96,7 +96,7 @@ func DetachDisk(args *DetachDiskArgs) (*DetachDiskResponse, error) {
 }
 
 func DeleteDisk(args *DeleteDiskArgs) (*DeleteDiskResponse, error) {
-	log.Infof("api:: AttachDisk")
+	log.Infof("api:: DeleteDisk")
 
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
@@ -152,6 +152,8 @@ func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDRespon
 }
 
 func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
+	log.Infof("api:: DescribeTaskStatus")
+
 	payload := struct {
 		TaskID string `json:"task_id"`
 	}{

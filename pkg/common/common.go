@@ -30,9 +30,9 @@ const (
 
 	// Disk
 	ActionCreateDisk = "CreateBlock"
-	ActionAttachDisk = "AttachDisk"
-	ActionDetachDisk = "DetachDisk"
-	ActionDeleteDisk = "DeleteDisk"
+	ActionAttachDisk = "AttachBlock"
+	ActionDetachDisk = "DetachBlock"
+	ActionDeleteDisk = "DeleteBlock"
 	ActionFindDiskByVolumeID = "DescribeBlock"
 	ActionDiskTaskStatus = "CheckBlockTaskStatus"
 
