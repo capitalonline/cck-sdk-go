@@ -34,7 +34,7 @@ const (
 	ActionDetachDisk = "DetachDisk"
 	ActionDeleteDisk = "DeleteDisk"
 	ActionFindDiskByVolumeID = "DescribeBlock"
-	ActionDiskTaskStatus = "CheckDiskTaskStatus"
+	ActionDiskTaskStatus = "CheckBlockTaskStatus"
 
 )
 
