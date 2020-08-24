@@ -108,7 +108,7 @@ func TestDeleteDisk(t *testing.T) {
 
 func TestFindDiskByVolumeID(t *testing.T) {
 	// params
-	volumeID := ""
+	volumeID := "5a694727-57ef-4888-ada4-40316cc99564"
 
 	// api request
 	res, err := FindDiskByVolumeID(&FindDiskByVolumeIDArgs{
