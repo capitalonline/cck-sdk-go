@@ -42,7 +42,9 @@ type DiskInfo struct {
 }
 type FindDiskByVolumeIDResponse struct {
 	Response
-	Data []DiskInfo `json:"Data"`
+	Data struct {
+		DiskSlice []DiskInfo
+	} `json:"data"`
 }
 
 type FindDeviceNameByVolumeIDArgs struct {
