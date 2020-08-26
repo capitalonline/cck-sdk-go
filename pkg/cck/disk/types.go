@@ -43,7 +43,7 @@ type DiskInfo struct {
 type FindDiskByVolumeIDResponse struct {
 	Response
 	Data struct {
-		DiskSlice []DiskInfo
+		DiskSlice []DiskInfo `json:"block_info"`
 	} `json:"data"`
 }
 
