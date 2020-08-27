@@ -60,7 +60,10 @@ func init() {
 		APIHost = defaultApiHostOversea
 	} else if os.Getenv(overseaFlag) == "False" && APIHost == "" {
 		APIHost = defaultApiHost
+	} else {
+		APIHost = defaultApiHost 
 	}
+
 }
 
 func IsAccessKeySet() bool {
