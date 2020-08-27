@@ -61,7 +61,7 @@ func init() {
 	} else if os.Getenv(overseaFlag) == "False" && APIHost == "" {
 		APIHost = defaultApiHost
 	} else {
-		APIHost = defaultApiHost 
+		APIHost = defaultApiHost
 	}
 
 }
