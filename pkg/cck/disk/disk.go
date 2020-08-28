@@ -140,19 +140,13 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 	if err != nil {
 		return nil, err
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> remotes/origin/master
 	req, err := common.NewCCKRequest(common.ActionDiskTaskStatus, http.MethodPost, nil, body)
 	response, err := common.DoRequest(req)
 	if err != nil {
 		return nil, err
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> remotes/origin/master
 	content, err := ioutil.ReadAll(response.Body)
 	if response.StatusCode >= 400 {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
@@ -160,9 +154,6 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 
 	res := &DescribeTaskStatusResponse{}
 	err = json.Unmarshal(content, res)
-<<<<<<< HEAD
 
-=======
->>>>>>> remotes/origin/master
 	return res, err
 }
