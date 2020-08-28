@@ -21,22 +21,20 @@ const (
 const (
 	// Nas
 	ActionDescribeNasInstances = "DescribeNasInstances"
-	ActionMountNas = "MountNas"
-	ActionUmountNas = "UmountNas"
-	ActionCreateNas = "CreateNas"
-	ActionResizeNas = "ResizeNas"
-	ActionDeleteNas = "DeleteNas"
-	ActionTaskStatus = "CheckNasTaskStatus"
+	ActionMountNas             = "MountNas"
+	ActionUmountNas            = "UmountNas"
+	ActionCreateNas            = "CreateNas"
+	ActionResizeNas            = "ResizeNas"
+	ActionDeleteNas            = "DeleteNas"
+	ActionTaskStatus           = "CheckNasTaskStatus"
 
 	// Disk
-	ActionCreateDisk = "CreateDisk"
-	ActionAttachDisk = "AttachDisk"
-	ActionDetachDisk = "DetachDisk"
-	ActionDeleteDisk = "DeleteDisk"
-	ActionFindDiskByVolumeID = "FindDiskByVolumeID"
-	ActionDeviceNameByVolumeID = "FindDeviceNameByVolumeID"
-	ActionDiskTaskStatus = "CheckDiskTaskStatus"
-
+	ActionCreateDisk         = "CreateBlock"
+	ActionAttachDisk         = "AttachBlock"
+	ActionDetachDisk         = "DetachBlock"
+	ActionDeleteDisk         = "DeleteBlock"
+	ActionFindDiskByVolumeID = "DescribeBlock"
+	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
 )
 
 var (
@@ -61,7 +59,10 @@ func init() {
 		APIHost = defaultApiHostOversea
 	} else if os.Getenv(overseaFlag) == "False" && APIHost == "" {
 		APIHost = defaultApiHost
+	} else {
+		APIHost = defaultApiHost
 	}
+
 }
 
 func IsAccessKeySet() bool {

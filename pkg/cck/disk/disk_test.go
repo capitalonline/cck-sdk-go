@@ -6,21 +6,21 @@ import (
 
 func TestCreateDisk(t *testing.T) {
 	// params
-	clusterID := ""
-	regionID := ""
-	fstype := ""
-	diskType := ""
-	requestGB := 500
-	readOnly := false
+	name := "testing-go-test-001"
+	regionID := "c2bfebe1-63e7-48b1-86df-e7a0b2c44ed0"
+	iops := 3000
+	diskType := "high_disk"
+	sise := 500
+	zoneID := "POD39-CLU03"
 
 	// api request
 	res, err := CreateDisk(&CreateDiskArgs{
-		ClusterID: clusterID,
-		RegionID:  regionID,
-		Fstype:    fstype,
-		Type:      diskType,
-		RequestGB: requestGB,
-		ReadOnly:  readOnly,
+		Name:     name,
+		RegionID: regionID,
+		DiskType: diskType,
+		Iops:     iops,
+		Size:     sise,
+		ZoneID:   zoneID,
 	})
 
 	if err != nil {
@@ -33,9 +33,14 @@ func TestCreateDisk(t *testing.T) {
 	}
 
 	// check DescribeTaskStatus
-	_, err = DescribeTaskStatus(res.TaskID)
+	resStatus, err := DescribeTaskStatus(res.TaskID)
 	if err != nil {
 		t.Errorf("Failed, err is: %s", err.Error())
+	}
+
+	// check status
+	if resStatus.Data.Status == "" {
+		t.Errorf("Failed, Status is empty")
 	}
 
 }
@@ -65,12 +70,10 @@ func TestAttachDisk(t *testing.T) {
 func TestDetachDisk(t *testing.T) {
 	// params
 	volumeID := ""
-	nodeID := ""
 
 	// api request
 	res, err := DetachDisk(&DetachDiskArgs{
 		VolumeID: volumeID,
-		NodeID:   nodeID,
 	})
 
 	// result
@@ -105,7 +108,7 @@ func TestDeleteDisk(t *testing.T) {
 
 func TestFindDiskByVolumeID(t *testing.T) {
 	// params
-	volumeID := ""
+	volumeID := "5a694727-57ef-4888-ada4-40316cc99564"
 
 	// api request
 	res, err := FindDiskByVolumeID(&FindDiskByVolumeIDArgs{
@@ -117,8 +120,9 @@ func TestFindDiskByVolumeID(t *testing.T) {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	if res.Data.InstanceID == "" || res.Data.Status == "" {
-		t.Errorf("Failed, [InstanceID/Status] is empty, but expectation is not empty")
+	if res.Data[0].NodeID == "" || res.Data[0].Status == "" || res.Data[0].Uuid == "" {
+		t.Errorf("Failed, [NodeID/Status/Uuid] is empty, but expectation is not empty")
+
 	}
 
 }
@@ -142,3 +146,4 @@ func TestFindDeviceNameByVolumeID(t *testing.T) {
 	}
 
 }
+

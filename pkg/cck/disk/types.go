@@ -7,44 +7,48 @@ type Response struct {
 }
 
 type AttachDiskArgs struct {
-	VolumeID string `json:"volume_id"`
+	VolumeID string `json:"block_id"`
 	NodeID   string `json:"node_id"`
 }
 type AttachDiskResponse struct {
 	Response
-	TaskID string `json:"taskID"`
+	TaskID string `json:"TaskId"`
 }
 
 type DetachDiskArgs struct {
-	VolumeID string `json:"volume_id"`
-	NodeID   string `json:"node_id"`
+	VolumeID string `json:"block_id"`
 }
 type DetachDiskResponse struct {
 	Response
-	TaskID string `json:"taskID"`
+	TaskID string `json:"TaskId"`
 }
 
 type DeleteDiskArgs struct {
-	VolumeID string `json:"disk_id"`
+	VolumeID string `json:"block_id"`
 }
 type DeleteDiskResponse struct {
 	Response
-	TaskID string `json:"taskID"`
+	TaskID string `json:"TaskId"`
 }
 
 type FindDiskByVolumeIDArgs struct {
-	VolumeID string `json:"volume_id"`
+	VolumeID string `json:"block_id"`
+}
+
+type DiskInfo struct {
+	NodeID string `json:"node_id"`
+	Status string `json:"status"`
+	Uuid   string `json:"disk_uuid"`
 }
 type FindDiskByVolumeIDResponse struct {
 	Response
 	Data struct {
-		InstanceID string `json:"instance_id"`
-		Status     string `json:"status"`
-	} `json:"Data"`
+		DiskSlice []DiskInfo `json:"block_info"`
+	} `json:"data"`
 }
 
 type FindDeviceNameByVolumeIDArgs struct {
-	VolumeID string `json:"volume_id"`
+	VolumeID string `json:"disk_id"`
 }
 type FindDeviceNameByVolumeIDResponse struct {
 	Response
@@ -54,19 +58,20 @@ type FindDeviceNameByVolumeIDResponse struct {
 }
 
 type CreateDiskArgs struct {
-	ClusterID string `json:"cluster_id"`
-	RegionID  string `json:"region_id"`
-	Fstype    string `json:"fstype"`
-	Type      string `json:"type"`
-	RequestGB int    `json:"requestGB"`
-	ReadOnly  bool   `json:"read_only"`
+	Name     string `json:"name"`
+	RegionID string `json:"site_id"`
+	DiskType string `json:"disk_type"`
+	Size     int    `json:"size"`
+	Iops     int    `json:"iops"`
+	ZoneID   string `json:"vc_cluster_name"`
 }
 type CreateDiskResponse struct {
 	Response
 	Data struct {
-		VolumeID string `json:"volume_id"`
+		VolumeID string `json:"block_id"`
 	} `json:"Data"`
-	TaskID string `json:"taskID"`
+	TaskID string `json:"TaskId"`
+
 }
 
 type DescribeTaskStatusResponse struct {
