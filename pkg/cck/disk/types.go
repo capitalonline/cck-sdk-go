@@ -71,6 +71,7 @@ type CreateDiskResponse struct {
 		VolumeID string `json:"block_id"`
 	} `json:"Data"`
 	TaskID string `json:"TaskId"`
+
 }
 
 type DescribeTaskStatusResponse struct {

@@ -122,23 +122,28 @@ func TestFindDiskByVolumeID(t *testing.T) {
 
 	if res.Data[0].NodeID == "" || res.Data[0].Status == "" || res.Data[0].Uuid == "" {
 		t.Errorf("Failed, [NodeID/Status/Uuid] is empty, but expectation is not empty")
+
 	}
 
 }
 
-func TestDescribeTaskStatus(t *testing.T) {
+func TestFindDeviceNameByVolumeID(t *testing.T) {
 	// params
-	taskID := "c971c21c-e5f0-11ea-a2ed-7abe85ed524b"
+	volumeID := ""
 
 	// api request
-	res, err := DescribeTaskStatus(taskID)
+	res, err := FindDeviceNameByVolumeID(&FindDeviceNameByVolumeIDArgs{
+		VolumeID: volumeID,
+	})
+
+	// result
 	if err != nil {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	// check status
-	if res.Data.Status == "" {
-		t.Errorf("Failed, Status is empty")
+	if res.Data.DeviceName == "" {
+		t.Errorf("Failed, [DeviceName] is empty, but expectation is not empty")
 	}
 
 }
+
