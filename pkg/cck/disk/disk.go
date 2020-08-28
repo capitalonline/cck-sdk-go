@@ -130,8 +130,6 @@ func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDRespon
 }
 
 func FindDeviceNameByVolumeID(args *FindDeviceNameByVolumeIDArgs) (*FindDeviceNameByVolumeIDResponse, error) {
-	log.Infof("api:: FindDeviceNameByVolumeID")
-
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
@@ -148,8 +146,6 @@ func FindDeviceNameByVolumeID(args *FindDeviceNameByVolumeIDArgs) (*FindDeviceNa
 	if response.StatusCode >= 400 {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
-
-	log.Infof("api:: content is: %s", content)
 
 	res := &FindDeviceNameByVolumeIDResponse{}
 	err = json.Unmarshal(content, res)
