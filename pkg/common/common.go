@@ -21,21 +21,20 @@ const (
 const (
 	// Nas
 	ActionDescribeNasInstances = "DescribeNasInstances"
-	ActionMountNas = "MountNas"
-	ActionUmountNas = "UmountNas"
-	ActionCreateNas = "CreateNas"
-	ActionResizeNas = "ResizeNas"
-	ActionDeleteNas = "DeleteNas"
-	ActionTaskStatus = "CheckNasTaskStatus"
+	ActionMountNas             = "MountNas"
+	ActionUmountNas            = "UmountNas"
+	ActionCreateNas            = "CreateNas"
+	ActionResizeNas            = "ResizeNas"
+	ActionDeleteNas            = "DeleteNas"
+	ActionTaskStatus           = "CheckNasTaskStatus"
 
 	// Disk
-	ActionCreateDisk = "CreateBlock"
-	ActionAttachDisk = "AttachBlock"
-	ActionDetachDisk = "DetachBlock"
-	ActionDeleteDisk = "DeleteBlock"
+	ActionCreateDisk         = "CreateBlock"
+	ActionAttachDisk         = "AttachBlock"
+	ActionDetachDisk         = "DetachBlock"
+	ActionDeleteDisk         = "DeleteBlock"
 	ActionFindDiskByVolumeID = "DescribeBlock"
-	ActionDiskTaskStatus = "CheckBlockTaskStatus"
-
+	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
 )
 
 var (

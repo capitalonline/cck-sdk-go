@@ -7,13 +7,9 @@ import (
 	"github.com/capitalonline/cck-sdk-go/pkg/common"
 	"io/ioutil"
 	"net/http"
-
-	log "github.com/sirupsen/logrus"
 )
 
 func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
-	log.Infof("api:: CreateDisk")
-
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
@@ -31,8 +27,6 @@ func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
 
-	log.Infof("api:: content is: %s", content)
-
 	res := &CreateDiskResponse{}
 	err = json.Unmarshal(content, res)
 
@@ -40,8 +34,6 @@ func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
 }
 
 func AttachDisk(args *AttachDiskArgs) (*AttachDiskResponse, error) {
-	log.Infof("api:: AttachDisk")
-
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
@@ -59,8 +51,6 @@ func AttachDisk(args *AttachDiskArgs) (*AttachDiskResponse, error) {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
 
-	log.Infof("api:: content is: %s", content)
-
 	res := &AttachDiskResponse{}
 	err = json.Unmarshal(content, res)
 
@@ -68,8 +58,6 @@ func AttachDisk(args *AttachDiskArgs) (*AttachDiskResponse, error) {
 }
 
 func DetachDisk(args *DetachDiskArgs) (*DetachDiskResponse, error) {
-	log.Infof("api:: DetachDisk")
-
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
@@ -87,8 +75,6 @@ func DetachDisk(args *DetachDiskArgs) (*DetachDiskResponse, error) {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
 
-	log.Infof("api:: content is: %s", content)
-
 	res := &DetachDiskResponse{}
 	err = json.Unmarshal(content, res)
 
@@ -96,8 +82,6 @@ func DetachDisk(args *DetachDiskArgs) (*DetachDiskResponse, error) {
 }
 
 func DeleteDisk(args *DeleteDiskArgs) (*DeleteDiskResponse, error) {
-	log.Infof("api:: DeleteDisk")
-
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
@@ -115,8 +99,6 @@ func DeleteDisk(args *DeleteDiskArgs) (*DeleteDiskResponse, error) {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
 
-	log.Infof("api:: content is: %s", content)
-
 	res := &DeleteDiskResponse{}
 	err = json.Unmarshal(content, res)
 
@@ -124,8 +106,6 @@ func DeleteDisk(args *DeleteDiskArgs) (*DeleteDiskResponse, error) {
 }
 
 func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDResponse, error) {
-	log.Infof("api:: FindDiskByVolumeID")
-
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
@@ -143,8 +123,6 @@ func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDRespon
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
 
-	log.Infof("api:: content is: %s", content)
-
 	res := &FindDiskByVolumeIDResponse{}
 	err = json.Unmarshal(content, res)
 
@@ -152,22 +130,23 @@ func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDRespon
 }
 
 func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
-	log.Infof("api:: DescribeTaskStatus")
-
 	payload := struct {
 		TaskID string `json:"task_id"`
 	}{
 		TaskID,
 	}
+
 	body, err := common.MarshalJsonToIOReader(payload)
 	if err != nil {
 		return nil, err
 	}
+
 	req, err := common.NewCCKRequest(common.ActionDiskTaskStatus, http.MethodPost, nil, body)
 	response, err := common.DoRequest(req)
 	if err != nil {
 		return nil, err
 	}
+
 	content, err := ioutil.ReadAll(response.Body)
 	if response.StatusCode >= 400 {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
@@ -175,5 +154,6 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 
 	res := &DescribeTaskStatusResponse{}
 	err = json.Unmarshal(content, res)
+
 	return res, err
 }
