@@ -135,7 +135,7 @@ func FindDeviceNameByVolumeID(args *FindDeviceNameByVolumeIDArgs) (*FindDeviceNa
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(common.ActionDeviceNameByVolumeID, http.MethodPost, nil, body)
+	req, err := common.NewCCKRequest(common.ActionFindDiskByVolumeID, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
