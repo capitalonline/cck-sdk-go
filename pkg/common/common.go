@@ -35,6 +35,7 @@ const (
 	ActionDeleteDisk         = "DeleteBlock"
 	ActionFindDiskByVolumeID = "DescribeBlock"
 	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
+	ActionUpdateBlock        = "UpdateBlock"
 )
 
 var (
