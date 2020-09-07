@@ -83,7 +83,7 @@ type DescribeTaskStatusResponse struct {
 
 type UpdateBlockFormatFlagArgs struct {
 	BlockID  string `json:"block_id"`
-	IsFormat string `json:"is_format"`
+	IsFormat int `json:"is_format"`
 }
 
 type UpdateBlockFormatFlagResponse struct {
