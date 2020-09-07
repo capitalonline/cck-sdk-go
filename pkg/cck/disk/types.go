@@ -88,7 +88,4 @@ type UpdateBlockFormatFlagArgs struct {
 
 type UpdateBlockFormatFlagResponse struct {
 	Response
-	Data struct {
-		Status string `json:"status"`
-	} `json:"data"`
 }
