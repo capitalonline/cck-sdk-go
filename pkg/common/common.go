@@ -36,6 +36,15 @@ const (
 	ActionFindDiskByVolumeID = "DescribeBlock"
 	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
 	ActionUpdateBlock        = "UpdateBlock"
+
+	// Block
+	ActionCreateBlock         = "CreateBmBlock"
+	ActionAttachBlock         = "AttachBmBlock"
+	ActionDetachBlock         = "DetachBmBlock"
+	ActionDeleteBlock         = "DeleteBmBlock"
+	ActionFindBlockByVolumeID = "DescribeBmBlock"
+	ActionBlockTaskStatus     = "CheckBlockTaskStatus"
+	ActionUpdateBmBlock       = "UpdateBmBlock"
 )
 
 var (
