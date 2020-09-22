@@ -9,6 +9,7 @@ type Response struct {
 type AttachBlockArgs struct {
 	VolumeID string `json:"bm_block_id"`
 	NodeID   string `json:"node_id"`
+	BmInstanceId string `json:"bm_instance_id"`
 }
 type AttachBlockResponse struct {
 	Response
