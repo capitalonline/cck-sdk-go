@@ -6,7 +6,7 @@ import (
 
 const (
 	defaultApiHost         = "http://cdsapi.capitalonline.net"
-	defaultApiHostOversea  = "http://cdsapi-us.capitalonline.net"
+	defaultApiHostOversea  = "http://cdsapi.capitalonline.net"
 	apiHostLiteral         = "API_HOST"
 	accessKeyIdLiteral     = "ACCESS_KEY_ID"
 	accessKeySecretLiteral = "ACCESS_KEY_SECRET"
