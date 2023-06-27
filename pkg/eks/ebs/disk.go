@@ -1,20 +1,20 @@
-package disk
+package ebs
 
 import (
+	"cck-sdk/pkg/common"
 	"encoding/json"
 	"fmt"
-	"github.com/capitalonline/cck-sdk-go/pkg/common"
 	"io/ioutil"
 	"net/http"
 )
 
-func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
+func CreateEbs(args *CreateEbsReq) (*CreateEbsResp, error) {
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(common.ActionCreateDisk, http.MethodPost, nil, body)
+	req, err := common.NewCCKRequest(common.ActionCreateEbs, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {

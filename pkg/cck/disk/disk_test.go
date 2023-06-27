@@ -120,7 +120,7 @@ func TestFindDiskByVolumeID(t *testing.T) {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	if res.Data.DiskSlice[0].NodeID == "" || res.Data.DiskSlice[0].Status == "" || res.Data.DiskSlice[0].Uuid == "" || res.Data.DiskSlice[0].IsFormat == "" {
+	if res.Data.DiskSlice[0].NodeID == "" || res.Data.DiskSlice[0].Status == "" || res.Data.DiskSlice[0].Uuid == "" || res.Data.DiskSlice[0].IsFormat == 0 {
 		t.Errorf("Failed, [NodeID/Status/Uuid/IsFormat] is empty, but expectation is not empty")
 
 	}
@@ -146,4 +146,3 @@ func TestFindDeviceNameByVolumeID(t *testing.T) {
 	}
 
 }
-

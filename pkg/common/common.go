@@ -36,6 +36,9 @@ const (
 	ActionFindDiskByVolumeID = "DescribeBlock"
 	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
 	ActionUpdateBlock        = "UpdateBlock"
+
+	// Ebs
+	ActionCreateEbs = "CreateDisk"
 )
 
 var (
