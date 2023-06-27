@@ -26,7 +26,7 @@ func CreateEbs(args *CreateEbsReq) (*CreateEbsResp, error) {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
 
-	res := &CreateDiskResponse{}
+	res := &CreateEbsResp{}
 	err = json.Unmarshal(content, res)
 
 	return res, err
