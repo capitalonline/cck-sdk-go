@@ -1,10 +1,10 @@
 package ebs
 
 type Response struct {
-	Code      interface{} `json:"Code"`
-	Message   interface{} `json:"Msg"`
+	Code      string      `json:"Code"`
+	Message   string      `json:"Msg"`
 	Data      interface{} `json:"Data,omitempty"`
-	RequestId interface{} `json:"RequestId"`
+	RequestId string      `json:"RequestId"`
 	OpenapiPage
 }
 
@@ -32,15 +32,17 @@ type DetachDiskResponse struct {
 }
 
 type DeleteDiskArgs struct {
-	VolumeID string `json:"block_id"`
+	DiskIds []string `json:"DiskIds"`
 }
 type DeleteDiskResponse struct {
 	Response
-	TaskID string `json:"TaskId"`
+	Data struct {
+		EventId string `json:"EventId"`
+	} `json:"Data"`
 }
 
 type FindDiskByVolumeIDArgs struct {
-	VolumeID string `json:"block_id"`
+	DiskId string `json:"DiskId"`
 }
 
 type DiskInfo struct {
@@ -52,8 +54,24 @@ type DiskInfo struct {
 type FindDiskByVolumeIDResponse struct {
 	Response
 	Data struct {
-		DiskSlice []DiskInfo `json:"block_info"`
-	} `json:"data"`
+		DiskInfo FindDiskByVolumeIDDiskInfo `json:"DiskInfo"`
+	} `json:"Data"`
+}
+
+type FindDiskByVolumeIDDiskInfo struct {
+	DiskId              string `json:"DiskId"`
+	DiskName            string `json:"DiskName"`
+	Size                int    `json:"Size"`
+	EcsId               string `json:"EcsId"`
+	EcsName             string `json:"EcsName"`
+	BillingMethod       string `json:"BillingMethod"`
+	ReleaseWithInstance int    `json:"ReleaseWithInstance"`
+	RegionCode          string `json:"RegionCode"`
+	AvailableZoneCode   string `json:"AvailableZoneCode"`
+	Status              string `json:"Status"`
+	StatusDisplay       string `json:"StatusDisplay"`
+	DiskFeature         string `json:"DiskFeature"`
+	Property            string `json:"Property"`
 }
 
 type FindDeviceNameByDiskIdArgs struct {
