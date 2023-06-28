@@ -56,13 +56,13 @@ type FindDiskByVolumeIDResponse struct {
 	} `json:"data"`
 }
 
-type FindDeviceNameByVolumeIDArgs struct {
-	VolumeID string `json:"disk_id"`
+type FindDeviceNameByDiskIdArgs struct {
+	DiskId string `json:"DiskId"`
 }
 type FindDeviceNameByVolumeIDResponse struct {
 	Response
 	Data struct {
-		DeviceName string `json:"device_name"`
+		DiskName string `json:"DiskName"`
 	} `json:"Data"`
 }
 
@@ -88,7 +88,7 @@ type CreateEbsRespData struct {
 type DescribeTaskStatusResponse struct {
 	Response
 	Data struct {
-		Status string `json:"status"`
+		EventStatus string `json:"EventStatus"`
 	} `json:"Data"`
 }
 
