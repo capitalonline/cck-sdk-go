@@ -154,7 +154,7 @@ func FindDeviceNameByVolumeID(args *FindDeviceNameByVolumeIDArgs) (*FindDeviceNa
 
 func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 	payload := struct {
-		TaskID string `json:"task_id"`
+		EventId string `json:"EventId"`
 	}{
 		TaskID,
 	}

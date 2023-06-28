@@ -67,13 +67,11 @@ type FindDeviceNameByVolumeIDResponse struct {
 }
 
 type CreateEbsReq struct {
-	ProductSource     string `json:"ProductSource"`
-	ProductServerId   string `json:"ProductServerId"`
 	AvailableZoneCode string `json:"AvailableZoneCode"`
 	DiskName          string `json:"DiskName"`
 	DiskFeature       string `json:"DiskFeature"`
 	Size              int    `json:"Size"`
-	Number            int    `json:"Number"`
+	Number            *int   `json:"Number,omitempty"`
 	BillingMethod     string `json:"BillingMethod"`
 }
 
