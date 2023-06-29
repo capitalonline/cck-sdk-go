@@ -12,6 +12,8 @@ const (
 	accessKeySecretLiteral = "ACCESS_KEY_SECRET"
 	overseaFlag            = "CDS_OVERSEA"
 	cckProductType         = "cck"
+	ebsProductType         = "ebs/v1"
+	ecsProductType         = "ecs/v1"
 	version                = "2019-08-08"
 	signatureVersion       = "1.0"
 	signatureMethod        = "HMAC-SHA1"
@@ -39,6 +41,8 @@ const (
 
 	// Ebs
 	ActionCreateEbs = "CreateDisk"
+
+	EbsSuccessCode = "Success"
 )
 
 var (

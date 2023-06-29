@@ -15,8 +15,8 @@ type OpenapiPage struct {
 }
 
 type AttachDiskArgs struct {
-	VolumeID string `json:"block_id"`
-	NodeID   string `json:"node_id"`
+	DiskIds    []string `json:"DiskIds"`
+	InstanceId string   `json:"InstanceId"`
 }
 type AttachDiskResponse struct {
 	Response
@@ -24,7 +24,7 @@ type AttachDiskResponse struct {
 }
 
 type DetachDiskArgs struct {
-	VolumeID string `json:"block_id"`
+	DiskIds []string `json:"DiskIds"`
 }
 type DetachDiskResponse struct {
 	Response
@@ -77,7 +77,7 @@ type FindDiskByVolumeIDDiskInfo struct {
 type FindDeviceNameByDiskIdArgs struct {
 	DiskId string `json:"DiskId"`
 }
-type FindDeviceNameByVolumeIDResponse struct {
+type FindDeviceNameByDiskIdResponse struct {
 	Response
 	Data struct {
 		DiskName string `json:"DiskName"`
