@@ -72,6 +72,7 @@ type FindDiskByVolumeIDDiskInfo struct {
 	StatusDisplay       string `json:"StatusDisplay"`
 	DiskFeature         string `json:"DiskFeature"`
 	Property            string `json:"Property"`
+	Order               int    `json:"Order"`
 }
 
 type FindDeviceNameByDiskIdArgs struct {
