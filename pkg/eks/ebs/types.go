@@ -90,7 +90,7 @@ type CreateEbsReq struct {
 	DiskFeature       string `json:"DiskFeature"`
 	Size              int    `json:"Size"`
 	Number            *int   `json:"Number,omitempty"`
-	BillingMethod     string `json:"BillingMethod"`
+	BillingMethod     string `json:"BillingMethod,omitempty"`
 }
 
 type CreateEbsResp struct {

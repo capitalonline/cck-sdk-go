@@ -40,7 +40,11 @@ const (
 	ActionUpdateBlock        = "UpdateBlock"
 
 	// Ebs
-	ActionCreateEbs = "CreateDisk"
+	ActionCreateEbs     = "CreateDisk"
+	ActionDescribeEvent = "DescribeEvent"
+	ActionDeleteEbs     = "DeleteDisk"
+	ActionAttachEbs     = "AttachDisk"
+	ActionDetachEbs     = "DetachDisk"
 
 	EbsSuccessCode = "Success"
 )
@@ -63,14 +67,12 @@ func init() {
 	}
 
 	// True is oversea cluster; False is domestic cluster
-	if os.Getenv(overseaFlag) == "True" && APIHost == "" {
-		APIHost = defaultApiHostOversea
-	} else if os.Getenv(overseaFlag) == "False" && APIHost == "" {
+	if APIHost == "" {
 		APIHost = defaultApiHost
-	} else {
-		APIHost = defaultApiHost
+		if os.Getenv(overseaFlag) == "True" {
+			APIHost = defaultApiHostOversea
+		}
 	}
-
 }
 
 func IsAccessKeySet() bool {

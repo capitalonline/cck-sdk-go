@@ -42,7 +42,7 @@ func AttachDisk(args *AttachDiskArgs) (*AttachDiskResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewEbsRequest(common.ActionAttachDisk, http.MethodPost, nil, body)
+	req, err := common.NewEbsRequest(common.ActionAttachEbs, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
@@ -68,7 +68,7 @@ func DetachDisk(args *DetachDiskArgs) (*DetachDiskResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewEbsRequest(common.ActionDetachDisk, http.MethodPost, nil, body)
+	req, err := common.NewEbsRequest(common.ActionDetachEbs, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
@@ -92,7 +92,7 @@ func DeleteDisk(args *DeleteDiskArgs) (*DeleteDiskResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewEbsRequest(common.ActionDeleteDisk, http.MethodPost, nil, body)
+	req, err := common.NewEbsRequest(common.ActionDeleteEbs, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
@@ -176,7 +176,7 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewEbsRequest(common.ActionDiskTaskStatus, http.MethodPost, nil, body)
+	req, err := common.NewEbsRequest(common.ActionDescribeEvent, http.MethodGet, nil, body)
 	response, err := common.DoRequest(req)
 	if err != nil {
 		return nil, err
