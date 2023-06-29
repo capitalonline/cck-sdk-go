@@ -46,3 +46,10 @@ func TestDetachDisk(t *testing.T) {
 	}
 	DetachDisk(&req)
 }
+
+func TestFindDiskByVolumeID(t *testing.T) {
+	var req = &FindDiskByVolumeIDArgs{
+		DiskId: "disk-xo4c1husoooa025y",
+	}
+	FindDiskByVolumeID(req)
+}

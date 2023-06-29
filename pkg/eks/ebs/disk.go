@@ -118,7 +118,7 @@ func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDRespon
 		return nil, err
 	}
 
-	req, err := common.NewEbsRequest(common.ActionFindDiskByVolumeID, http.MethodPost, nil, body)
+	req, err := common.NewEbsRequest(common.ActionDescribeEbs, http.MethodGet, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
