@@ -119,3 +119,17 @@ type UpdateBlockFormatFlagArgs struct {
 type UpdateBlockFormatFlagResponse struct {
 	Response
 }
+
+type ExtendDiskArgs struct {
+	DiskId       string `json:"DiskId"`
+	ExtendedSize int    `json:"ExtendedSize"`
+}
+
+type ExtendDiskResponse struct {
+	Response
+	Data ExtendDiskData `json:"Data"`
+}
+
+type ExtendDiskData struct {
+	EventId string `json:"EventId"`
+}

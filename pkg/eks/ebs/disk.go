@@ -220,3 +220,29 @@ func UpdateBlockFormatFlag(args *UpdateBlockFormatFlagArgs) (*UpdateBlockFormatF
 	}
 	return res, err
 }
+
+func ExtendDisk(args *ExtendDiskArgs) (*ExtendDiskResponse, error) {
+	body, err := common.MarshalJsonToIOReader(args)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := common.NewEbsRequest(common.ActionExtendEbs, http.MethodPost, nil, body)
+
+	response, err := common.DoRequest(req)
+	if err != nil {
+		return nil, err
+	}
+
+	content, err := io.ReadAll(response.Body)
+	if response.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
+	}
+
+	res := &ExtendDiskResponse{}
+	err = json.Unmarshal(content, res)
+	if res.Code != common.EbsSuccessCode {
+		return nil, errors.New(fmt.Sprintf("%s request failed,msg:%s", common.ActionCreateEbs, res.Message))
+	}
+	return res, err
+}

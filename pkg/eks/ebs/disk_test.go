@@ -8,7 +8,8 @@ import (
 
 func TestCreateEbs(t *testing.T) {
 	var req = CreateEbsReq{
-		AvailableZoneCode: "CN_DaBieShan_A",
+		//AvailableZoneCode: "CN_DaBieShan_A",
+		AvailableZoneCode: "SR_SaoPaulo_A",
 		DiskName:          "dyl-test",
 		DiskFeature:       "SSD",
 		Size:              64,
@@ -52,4 +53,12 @@ func TestFindDiskByVolumeID(t *testing.T) {
 		DiskId: "disk-xo4c1husoooa025y",
 	}
 	FindDiskByVolumeID(req)
+}
+
+func TestExtendDisk(t *testing.T) {
+	var req = &ExtendDiskArgs{
+		DiskId:       "disk-xo4c1husoooa025y",
+		ExtendedSize: 72,
+	}
+	ExtendDisk(req)
 }

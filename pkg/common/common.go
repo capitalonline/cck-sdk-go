@@ -46,6 +46,7 @@ const (
 	ActionAttachEbs     = "AttachDisk"
 	ActionDetachEbs     = "DetachDisk"
 	ActionDescribeEbs   = "DescribeDisk"
+	ActionExtendEbs     = "ExtendDisk"
 
 	EbsSuccessCode = "Success"
 )
