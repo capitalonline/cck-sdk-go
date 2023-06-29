@@ -1,10 +1,10 @@
 package ebs
 
 import (
-	"cck-sdk/pkg/common"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/capitalonline/cck-sdk-go/pkg/common"
 	"io"
 	"net/http"
 )
