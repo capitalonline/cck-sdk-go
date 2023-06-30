@@ -15,8 +15,9 @@ type OpenapiPage struct {
 }
 
 type AttachDiskArgs struct {
-	DiskIds    []string `json:"DiskIds"`
-	InstanceId string   `json:"InstanceId"`
+	DiskIds             []string `json:"DiskIds"`
+	InstanceId          string   `json:"InstanceId"`
+	ReleaseWithInstance int      `json:"ReleaseWithInstance"`
 }
 type AttachDiskResponse struct {
 	Response
