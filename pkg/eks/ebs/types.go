@@ -20,7 +20,9 @@ type AttachDiskArgs struct {
 }
 type AttachDiskResponse struct {
 	Response
-	EventId string `json:"EventId"`
+	Data struct {
+		EventId string `json:"EventId"`
+	} `json:"Data"`
 }
 
 type DetachDiskArgs struct {
@@ -28,7 +30,9 @@ type DetachDiskArgs struct {
 }
 type DetachDiskResponse struct {
 	Response
-	EventId string `json:"EventId"`
+	Data struct {
+		EventId string `json:"EventId"`
+	} `json:"Data"`
 }
 
 type DeleteDiskArgs struct {
