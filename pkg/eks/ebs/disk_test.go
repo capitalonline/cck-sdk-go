@@ -35,8 +35,9 @@ func TestDeleteEbs(t *testing.T) {
 
 func TestAttachDisk(t *testing.T) {
 	var req = AttachDiskArgs{
-		DiskIds:    []string{"disk-xo4c1husoooa025y"},
-		InstanceId: "ins-bmg6whbsvzhu8xg5",
+		DiskIds:             []string{"disk-2hjcw8fszoaap2oy"},
+		InstanceId:          "ins-bmg6whbsvzhu8xg5",
+		ReleaseWithInstance: 0,
 	}
 	AttachDisk(&req)
 }
@@ -61,4 +62,8 @@ func TestExtendDisk(t *testing.T) {
 		ExtendedSize: 72,
 	}
 	ExtendDisk(req)
+}
+
+func TestDescribeDiskQuota(t *testing.T) {
+	DescribeDiskQuota("SR_SaoPaulo_A")
 }

@@ -40,13 +40,14 @@ const (
 	ActionUpdateBlock        = "UpdateBlock"
 
 	// Ebs
-	ActionCreateEbs     = "CreateDisk"
-	ActionDescribeEvent = "DescribeEvent"
-	ActionDeleteEbs     = "DeleteDisk"
-	ActionAttachEbs     = "AttachDisk"
-	ActionDetachEbs     = "DetachDisk"
-	ActionDescribeEbs   = "DescribeDisk"
-	ActionExtendEbs     = "ExtendDisk"
+	ActionCreateEbs         = "CreateDisk"
+	ActionDescribeEvent     = "DescribeEvent"
+	ActionDeleteEbs         = "DeleteDisk"
+	ActionAttachEbs         = "AttachDisk"
+	ActionDetachEbs         = "DetachDisk"
+	ActionDescribeEbs       = "DescribeDisk"
+	ActionExtendEbs         = "ExtendDisk"
+	ActionDescribeDiskQuota = "DescribeDiskQuota"
 
 	EbsSuccessCode = "Success"
 )

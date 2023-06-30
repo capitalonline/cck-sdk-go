@@ -138,3 +138,23 @@ type ExtendDiskResponse struct {
 type ExtendDiskData struct {
 	EventId string `json:"EventId"`
 }
+
+type DescribeDiskQuotaRequest struct {
+	AvailableZoneCode string `json:"AvailableZoneCode"`
+}
+
+type DescribeDiskQuotaResponse struct {
+	Response
+	Data DescribeDiskQuotaResponseData `json:"Data"`
+}
+
+type DescribeDiskQuotaResponseData struct {
+	QuotaList []Quota `json:"QuotaList"`
+}
+
+type Quota struct {
+	TotalQuota  int    `json:"TotalQuota"`
+	UsedQuota   int    `json:"UsedQuota"`
+	FreeQuota   int    `json:"FreeQuota"`
+	DiskFeature string `json:"DiskFeature"`
+}
