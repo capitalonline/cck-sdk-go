@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/capitalonline/cck-sdk-go/pkg/common"
+	log "github.com/sirupsen/logrus"
 	"io"
 	"net/http"
 )
@@ -126,14 +127,16 @@ func FindDiskByVolumeID(args *FindDiskByVolumeIDArgs) (*FindDiskByVolumeIDRespon
 	}
 
 	content, err := io.ReadAll(response.Body)
-	if response.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
+	if err != nil {
+		return nil, err
 	}
-
+	if response.StatusCode != http.StatusOK {
+		log.Errorf("http error:%s, %s", response.Status, string(content))
+	}
 	res := &FindDiskByVolumeIDResponse{}
 	err = json.Unmarshal(content, res)
 	if res.Code != common.EbsSuccessCode {
-		return nil, errors.New(fmt.Sprintf("%s request failed,msg:%s", common.ActionCreateEbs, res.Message))
+		log.Errorf("%s request failed,msg:%s", common.ActionCreateEbs, res.Message)
 	}
 	return res, err
 }
