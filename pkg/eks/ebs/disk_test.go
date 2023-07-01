@@ -69,5 +69,7 @@ func TestDescribeDiskQuota(t *testing.T) {
 }
 
 func TestDescribeInstance(t *testing.T) {
-	DescribeInstance("ins-7z34duds5mm7dln3")
+	res, er := DescribeInstance("ins-r4h21z8s00mvji7g")
+	fmt.Println(res.Data.Disk)
+	fmt.Println(res, er)
 }

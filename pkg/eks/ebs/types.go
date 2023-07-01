@@ -169,7 +169,29 @@ type DescribeInstanceResponse struct {
 }
 
 type DescribeInstanceData struct {
-	EcsId   string `json:"EcsId"`
-	EcsName string `json:"EcsName"`
-	Status  string `json:"Status"`
+	EcsId   string                   `json:"EcsId"`
+	EcsName string                   `json:"EcsName"`
+	Status  string                   `json:"Status"`
+	Disk    DescribeInstanceDataDisk `json:"Disk"`
+}
+
+type DescribeInstanceDataDisk struct {
+	SystemDiskConf DescribeInstanceDataDiskInfo   `json:"SystemDiskConf"`
+	DataDiskConf   []DescribeInstanceDataDiskInfo `json:"DataDiskConf"`
+}
+
+type DescribeInstanceDataDiskInfo struct {
+	IsFollowDelete      int    `json:"IsFollowDelete"`
+	DiskType            string `json:"DiskType"`
+	Name                string `json:"Name"`
+	Size                int    `json:"Size"`
+	EcsGoodsId          string `json:"EcsGoodsId"`
+	DiskIops            int    `json:"DiskIops"`
+	BandMbps            int    `json:"BandMbps"`
+	ReleaseWithInstance int    `json:"ReleaseWithInstance"`
+	EbsGoodsId          string `json:"EbsGoodsId"`
+	Unit                string `json:"Unit"`
+	DiskFeature         string `json:"DiskFeature"`
+	DiskName            string `json:"DiskName"`
+	DiskId              string `json:"DiskId"`
 }
