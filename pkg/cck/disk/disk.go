@@ -3,7 +3,6 @@ package disk
 import (
 	"encoding/json"
 	"fmt"
-
 	"github.com/capitalonline/cck-sdk-go/pkg/common"
 	"io/ioutil"
 	"net/http"
@@ -50,7 +49,7 @@ func AttachDisk(args *AttachDiskArgs) (*AttachDiskResponse, error) {
 	if response.StatusCode >= 400 {
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
-  
+
 	res := &AttachDiskResponse{}
 	err = json.Unmarshal(content, res)
 
@@ -159,7 +158,7 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 	}{
 		TaskID,
 	}
-  
+
 	body, err := common.MarshalJsonToIOReader(payload)
 	if err != nil {
 		return nil, err

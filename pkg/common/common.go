@@ -12,6 +12,8 @@ const (
 	accessKeySecretLiteral = "ACCESS_KEY_SECRET"
 	overseaFlag            = "CDS_OVERSEA"
 	cckProductType         = "cck"
+	ebsProductType         = "ebs/v1"
+	ecsProductType         = "ecs/v1"
 	version                = "2019-08-08"
 	signatureVersion       = "1.0"
 	signatureMethod        = "HMAC-SHA1"
@@ -36,6 +38,20 @@ const (
 	ActionFindDiskByVolumeID = "DescribeBlock"
 	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
 	ActionUpdateBlock        = "UpdateBlock"
+
+	// Ebs
+	ActionCreateEbs         = "CreateDisk"
+	ActionDescribeEvent     = "DescribeEvent"
+	ActionDeleteEbs         = "DeleteDisk"
+	ActionAttachEbs         = "AttachDisk"
+	ActionDetachEbs         = "DetachDisk"
+	ActionDescribeEbs       = "DescribeDisk"
+	ActionExtendEbs         = "ExtendDisk"
+	ActionDescribeDiskQuota = "DescribeDiskQuota"
+
+	ActionDescribeInstance = "DescribeInstance"
+
+	EbsSuccessCode = "Success"
 )
 
 var (
@@ -56,14 +72,12 @@ func init() {
 	}
 
 	// True is oversea cluster; False is domestic cluster
-	if os.Getenv(overseaFlag) == "True" && APIHost == "" {
-		APIHost = defaultApiHostOversea
-	} else if os.Getenv(overseaFlag) == "False" && APIHost == "" {
+	if APIHost == "" {
 		APIHost = defaultApiHost
-	} else {
-		APIHost = defaultApiHost
+		if os.Getenv(overseaFlag) == "True" {
+			APIHost = defaultApiHostOversea
+		}
 	}
-
 }
 
 func IsAccessKeySet() bool {
