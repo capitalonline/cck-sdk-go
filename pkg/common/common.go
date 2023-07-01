@@ -49,6 +49,8 @@ const (
 	ActionExtendEbs         = "ExtendDisk"
 	ActionDescribeDiskQuota = "DescribeDiskQuota"
 
+	ActionDescribeInstance = "DescribeInstance"
+
 	EbsSuccessCode = "Success"
 )
 

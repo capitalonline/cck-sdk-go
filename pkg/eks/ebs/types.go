@@ -158,3 +158,18 @@ type Quota struct {
 	FreeQuota   int    `json:"FreeQuota"`
 	DiskFeature string `json:"DiskFeature"`
 }
+
+type DescribeInstanceRequest struct {
+	EcsId string `json:"EcsId"`
+}
+
+type DescribeInstanceResponse struct {
+	Response
+	Data DescribeInstanceData `json:"Data"`
+}
+
+type DescribeInstanceData struct {
+	EcsId   string `json:"EcsId"`
+	EcsName string `json:"EcsName"`
+	Status  string `json:"Status"`
+}

@@ -67,3 +67,7 @@ func TestExtendDisk(t *testing.T) {
 func TestDescribeDiskQuota(t *testing.T) {
 	DescribeDiskQuota("SR_SaoPaulo_A")
 }
+
+func TestDescribeInstance(t *testing.T) {
+	DescribeInstance("ins-7z34duds5mm7dln3")
+}
