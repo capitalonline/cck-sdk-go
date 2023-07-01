@@ -58,9 +58,7 @@ func DoRequest(req *CloudRequest) (resp *http.Response, err error) {
 	if err != nil {
 		return
 	}
-	if req.method != http.MethodGet {
-		sendRequest.Header.Set("Content-Type", "application/json")
-	}
+	sendRequest.Header.Set("Content-Type", "application/json")
 	log.Infof("send request url: %s", reqUrl)
 	resp, err = http.DefaultClient.Do(sendRequest)
 	return
