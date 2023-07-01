@@ -21,13 +21,13 @@ func TestCreateEbs(t *testing.T) {
 }
 
 func TestDescribeTaskStatus(t *testing.T) {
-	DescribeTaskStatus("645c8c30-1640-11ee-843e-16ecbf5c1698")
+	DescribeTaskStatus("60dbf132-17d4-11ee-843e-16ecbf5c1698")
 }
 
 func TestDeleteEbs(t *testing.T) {
 	req := DeleteDiskArgs{
 		DiskIds: []string{
-			"disk-gpr4uegsooaa62jy",
+			"disk-tw669d2s9ofab26y",
 		},
 	}
 	DeleteDisk(&req)
@@ -36,7 +36,7 @@ func TestDeleteEbs(t *testing.T) {
 func TestAttachDisk(t *testing.T) {
 	var req = AttachDiskArgs{
 		DiskIds:             []string{"disk-2hjcw8fszoaap2oy"},
-		InstanceId:          "ins-bmg6whbsvzhu8xg5",
+		InstanceId:          "disk-tw669d2s9ofab26y",
 		ReleaseWithInstance: 0,
 	}
 	AttachDisk(&req)
@@ -44,14 +44,14 @@ func TestAttachDisk(t *testing.T) {
 
 func TestDetachDisk(t *testing.T) {
 	var req = DetachDiskArgs{
-		DiskIds: []string{"disk-xo4c1husoooa025y"},
+		DiskIds: []string{"disk-tw669d2s9ofab26y"},
 	}
 	DetachDisk(&req)
 }
 
 func TestFindDiskByVolumeID(t *testing.T) {
 	var req = &FindDiskByVolumeIDArgs{
-		DiskId: "disk-xo4c1husoooa025y",
+		DiskId: "disk-tw669d2s9ofab26y",
 	}
 	FindDiskByVolumeID(req)
 }
