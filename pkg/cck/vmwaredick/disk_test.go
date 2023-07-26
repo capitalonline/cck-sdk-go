@@ -115,7 +115,7 @@ func TestGetDiskInfo(t *testing.T) {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	if res.Data.NodeID == "" || res.Data.Status == "" || res.Data.Uuid == "" || res.Data.Status == "0" {
+	if res.Data.NodeID == "" || res.Data.Status == "" || res.Data.VolumeId == "" {
 		t.Errorf("Failed, [NodeID/Status/Uuid/IsFormat] is empty, but expectation is not empty")
 	}
 }

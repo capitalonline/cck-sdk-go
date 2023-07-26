@@ -38,9 +38,9 @@ type DiskInfoArgs struct {
 type DiskInfoResponse struct {
 	Response
 	Data struct {
-		NodeID string `json:"node_id"`
-		Status string `json:"status"`
-		Uuid   string `json:"disk_uuid"`
+		NodeID   string `json:"node_id"`
+		Status   string `json:"status"`
+		VolumeId string `json:"disk_uuid"`
 	} `json:"data"`
 }
 
