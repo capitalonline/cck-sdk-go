@@ -25,26 +25,23 @@ func TestCreateDisk(t *testing.T) {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	// result
-	if res.TaskID == "" || res.Data.VolumeID == "" {
+	if res.Data.VolumeID == "" {
 		t.Errorf("Failed, [TaskID/VolumeID] is empty, but expectation is not empty")
 	}
 
-	// check DescribeTaskStatus
-	resStatus, err := DescribeTaskStatus(res.TaskID)
+	resStatus, err := GetDiskInfo(&DiskInfoArgs{
+		VolumeID: res.Data.VolumeID,
+	})
 	if err != nil {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	// check status
 	if resStatus.Data.Status == "" {
 		t.Errorf("Failed, Status is empty")
 	}
-
 }
 
 func TestAttachDisk(t *testing.T) {
-	// params
 	volumeID := ""
 	nodeID := ""
 
@@ -104,12 +101,12 @@ func TestDeleteDisk(t *testing.T) {
 	}
 }
 
-func TestFindDiskByVolumeID(t *testing.T) {
+func TestGetDiskInfo(t *testing.T) {
 	// params
 	volumeID := "5a694727-57ef-4888-ada4-40316cc99564"
 
 	// api request
-	res, err := FindDiskByVolumeID(&FindDiskByVolumeIDArgs{
+	res, err := GetDiskInfo(&DiskInfoArgs{
 		VolumeID: volumeID,
 	})
 
@@ -118,9 +115,7 @@ func TestFindDiskByVolumeID(t *testing.T) {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	if res.Data.DiskSlice[0].NodeID == "" || res.Data.DiskSlice[0].Status == "" || res.Data.DiskSlice[0].Uuid == "" || res.Data.DiskSlice[0].Status == "0" {
+	if res.Data.NodeID == "" || res.Data.Status == "" || res.Data.Uuid == "" || res.Data.Status == "0" {
 		t.Errorf("Failed, [NodeID/Status/Uuid/IsFormat] is empty, but expectation is not empty")
-
 	}
-
 }

@@ -31,20 +31,16 @@ type DeleteDiskResponse struct {
 	TaskID string `json:"TaskId"`
 }
 
-type FindDiskByVolumeIDArgs struct {
+type DiskInfoArgs struct {
 	VolumeID string `json:"block_id"`
 }
 
-type DiskInfo struct {
-	NodeID string `json:"node_id"`
-	Status string `json:"status"`
-	Uuid   string `json:"disk_uuid"`
-}
-
-type FindDiskByVolumeIDResponse struct {
+type DiskInfoResponse struct {
 	Response
 	Data struct {
-		DiskSlice []DiskInfo `json:"block_info"`
+		NodeID string `json:"node_id"`
+		Status string `json:"status"`
+		Uuid   string `json:"disk_uuid"`
 	} `json:"data"`
 }
 
