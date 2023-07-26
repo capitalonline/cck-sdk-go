@@ -40,21 +40,12 @@ type DiskInfo struct {
 	Status string `json:"status"`
 	Uuid   string `json:"disk_uuid"`
 }
+
 type FindDiskByVolumeIDResponse struct {
 	Response
 	Data struct {
 		DiskSlice []DiskInfo `json:"block_info"`
 	} `json:"data"`
-}
-
-type FindDeviceNameByVolumeIDArgs struct {
-	VolumeID string `json:"disk_id"`
-}
-type FindDeviceNameByVolumeIDResponse struct {
-	Response
-	Data struct {
-		DeviceName string `json:"device_name"`
-	} `json:"Data"`
 }
 
 type CreateDiskArgs struct {
@@ -77,13 +68,4 @@ type DescribeTaskStatusResponse struct {
 	Data struct {
 		Status string `json:"status"`
 	} `json:"Data"`
-}
-
-type UpdateBlockStatusArgs struct {
-	BlockID string `json:"block_id"`
-	Status  int    `json:"status"`
-}
-
-type UpdateBlockStatusResponse struct {
-	Response
 }

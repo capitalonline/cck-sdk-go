@@ -124,23 +124,3 @@ func TestFindDiskByVolumeID(t *testing.T) {
 	}
 
 }
-
-func TestFindDeviceNameByVolumeID(t *testing.T) {
-	// params
-	volumeID := ""
-
-	// api request
-	res, err := FindDeviceNameByVolumeID(&FindDeviceNameByVolumeIDArgs{
-		VolumeID: volumeID,
-	})
-
-	// result
-	if err != nil {
-		t.Errorf("Failed, err is: %s", err.Error())
-	}
-
-	if res.Data.DeviceName == "" {
-		t.Errorf("Failed, [DeviceName] is empty, but expectation is not empty")
-	}
-
-}
