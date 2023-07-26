@@ -59,12 +59,11 @@ type FindDeviceNameByVolumeIDResponse struct {
 }
 
 type CreateDiskArgs struct {
-	Name     string `json:"name"`
-	RegionID string `json:"site_id"`
-	DiskType string `json:"disk_type"`
-	Size     int    `json:"size"`
-	Iops     int    `json:"iops"`
-	ZoneID   string `json:"vc_cluster_name"`
+	RegionID    string `json:"site_id"`
+	DiskType    string `json:"disk_type"`
+	Size        int    `json:"size"`
+	Iops        int    `json:"iops"`
+	ClusterName string `json:"cluster_name"`
 }
 type CreateDiskResponse struct {
 	Response
