@@ -181,7 +181,7 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 	return res, err
 }
 
-func UpdateBlockFormatFlag(args *UpdateBlockFormatFlagArgs) (*UpdateBlockFormatFlagResponse, error) {
+func UpdateBlockStatus(args *UpdateBlockStatusArgs) (*UpdateBlockStatusResponse, error) {
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
@@ -199,7 +199,7 @@ func UpdateBlockFormatFlag(args *UpdateBlockFormatFlagArgs) (*UpdateBlockFormatF
 		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
 	}
 
-	res := &UpdateBlockFormatFlagResponse{}
+	res := &UpdateBlockStatusResponse{}
 	err = json.Unmarshal(content, res)
 
 	return res, err

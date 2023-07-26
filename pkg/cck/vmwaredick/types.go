@@ -36,10 +36,9 @@ type FindDiskByVolumeIDArgs struct {
 }
 
 type DiskInfo struct {
-	NodeID   string `json:"node_id"`
-	Status   string `json:"status"`
-	Uuid     string `json:"disk_uuid"`
-	IsFormat int    `json:"is_format"`
+	NodeID string `json:"node_id"`
+	Status string `json:"status"`
+	Uuid   string `json:"disk_uuid"`
 }
 type FindDiskByVolumeIDResponse struct {
 	Response
@@ -80,11 +79,11 @@ type DescribeTaskStatusResponse struct {
 	} `json:"Data"`
 }
 
-type UpdateBlockFormatFlagArgs struct {
-	BlockID  string `json:"block_id"`
-	IsFormat int    `json:"is_format"`
+type UpdateBlockStatusArgs struct {
+	BlockID string `json:"block_id"`
+	Status  int    `json:"status"`
 }
 
-type UpdateBlockFormatFlagResponse struct {
+type UpdateBlockStatusResponse struct {
 	Response
 }
