@@ -7,8 +7,8 @@ type Response struct {
 }
 
 type AttachDiskArgs struct {
-	VolumeID string `json:"block_id"`
-	NodeID   string `json:"node_id"`
+	VolumeID string `json:"UUID"`
+	NodeID   string `json:"VM_ID"`
 }
 type AttachDiskResponse struct {
 	Response
@@ -16,7 +16,8 @@ type AttachDiskResponse struct {
 }
 
 type DetachDiskArgs struct {
-	VolumeID string `json:"block_id"`
+	VolumeID string `json:"UUID"`
+	NodeID   string `json:"VM_ID"`
 }
 type DetachDiskResponse struct {
 	Response
@@ -42,7 +43,7 @@ type DiskInfoResponse struct {
 		Status   string `json:"status"`
 		VolumeId string `json:"disk_id"`
 		Mounted  bool   `json:"is_load"`
-		IsValid  bool   `json:"is"`
+		IsValid  bool   `json:"is_valid"`
 	} `json:"data"`
 }
 
