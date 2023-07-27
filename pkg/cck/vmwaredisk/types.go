@@ -47,11 +47,11 @@ type DiskInfoResponse struct {
 }
 
 type CreateDiskArgs struct {
-	RegionID    string `json:"site_id"`
-	DiskType    string `json:"disk_type"`
-	Size        int    `json:"size"`
-	Iops        int    `json:"iops"`
-	ClusterName string `json:"cluster_name"`
+	RegionID    string `json:"RegionId"`
+	DiskType    string `json:"DiskType"`
+	Size        int    `json:"Size"`
+	Iops        int    `json:"IOPS"`
+	ClusterName string `json:"ClusterName"`
 }
 type CreateDiskResponse struct {
 	Response
