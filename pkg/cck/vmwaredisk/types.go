@@ -24,7 +24,7 @@ type DetachDiskResponse struct {
 }
 
 type DeleteDiskArgs struct {
-	VolumeID string `json:"block_id"`
+	VolumeID string `json:"UUID"`
 }
 type DeleteDiskResponse struct {
 	Response
@@ -38,16 +38,16 @@ type DiskInfoArgs struct {
 type DiskInfoResponse struct {
 	Response
 	Data struct {
-		NodeID   string `json:"node_id"`
+		NodeID   string `json:"vm_id"`
 		Status   string `json:"status"`
-		VolumeId string `json:"disk_uuid"`
-		Mounted  bool   `json:"mounted"`
-		IsValid  bool   `json:"is_valid"`
+		VolumeId string `json:"disk_id"`
+		Mounted  bool   `json:"is_load"`
+		IsValid  bool   `json:"is"`
 	} `json:"data"`
 }
 
 type CreateDiskArgs struct {
-	RegionID    string `json:"RegionId"`
+	RegionID    string `json:"SiteId"`
 	DiskType    string `json:"DiskType"`
 	Size        int    `json:"Size"`
 	Iops        int    `json:"IOPS"`
@@ -56,7 +56,7 @@ type CreateDiskArgs struct {
 type CreateDiskResponse struct {
 	Response
 	Data struct {
-		VolumeID string `json:"block_id"`
+		VolumeID string `json:"uuid"`
 	} `json:"Data"`
 	TaskID string `json:"TaskId"`
 }
