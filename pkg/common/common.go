@@ -19,6 +19,7 @@ const (
 	signatureVersion       = "1.0"
 	signatureMethod        = "HMAC-SHA1"
 	timeStampFormat        = "2006-01-02T15:04:05Z"
+	defaultClusterName     = "Cluster_Name"
 )
 
 const (
@@ -59,6 +60,7 @@ var (
 	APIHost         string
 	AccessKeyID     string
 	AccessKeySecret string
+	ClusterName     string
 )
 
 func init() {
@@ -78,6 +80,10 @@ func init() {
 		if os.Getenv(overseaFlag) == "True" {
 			APIHost = defaultApiHostOversea
 		}
+	}
+
+	if ClusterName == "" {
+		ClusterName = os.Getenv(accessKeySecretLiteral)
 	}
 }
 
