@@ -8,13 +8,23 @@ import (
 	"net/http"
 )
 
+const (
+	ActionCreateDisk         = "CsiCreateDisk"
+	ActionAttachDisk         = "AttachBlock"
+	ActionDetachDisk         = "DetachBlock"
+	ActionDeleteDisk         = "DeleteBlock"
+	ActionFindDiskByVolumeID = "DescribeBlock"
+	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
+	ActionUpdateBlock        = "UpdateBlock"
+)
+
 func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(common.ActionCreateDisk, http.MethodPost, nil, body)
+	req, err := common.NewCCKRequest(ActionCreateDisk, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
