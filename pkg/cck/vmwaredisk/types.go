@@ -42,6 +42,7 @@ type DiskInfoResponse struct {
 		Status   string `json:"status"`
 		VolumeId string `json:"disk_uuid"`
 		Mounted  bool   `json:"mounted"`
+		IsValid  bool   `json:"is_valid"`
 	} `json:"data"`
 }
 
