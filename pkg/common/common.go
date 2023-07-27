@@ -12,6 +12,7 @@ const (
 	accessKeySecretLiteral = "ACCESS_KEY_SECRET"
 	overseaFlag            = "CDS_OVERSEA"
 	cckProductType         = "cck"
+	ccsProductType         = "ccs"
 	ebsProductType         = "ebs/v1"
 	ecsProductType         = "ecs/v1"
 	version                = "2019-08-08"

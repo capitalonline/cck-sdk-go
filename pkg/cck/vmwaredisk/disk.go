@@ -1,9 +1,9 @@
 package vmwaredisk
 
 import (
+	"cck-sdk-go/pkg/common"
 	"encoding/json"
 	"fmt"
-	"github.com/capitalonline/cck-sdk-go/pkg/common"
 	"io/ioutil"
 	"net/http"
 )
@@ -24,7 +24,7 @@ func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(ActionCreateDisk, http.MethodPost, nil, body)
+	req, err := common.NewCCSRequest(ActionCreateDisk, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
@@ -48,7 +48,7 @@ func AttachDisk(args *AttachDiskArgs) (*AttachDiskResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(common.ActionAttachDisk, http.MethodPost, nil, body)
+	req, err := common.NewCCSRequest(common.ActionAttachDisk, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
@@ -72,7 +72,7 @@ func DetachDisk(args *DetachDiskArgs) (*DetachDiskResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(common.ActionDetachDisk, http.MethodPost, nil, body)
+	req, err := common.NewCCSRequest(common.ActionDetachDisk, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
@@ -96,7 +96,7 @@ func DeleteDisk(args *DeleteDiskArgs) (*DeleteDiskResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(common.ActionDeleteDisk, http.MethodPost, nil, body)
+	req, err := common.NewCCSRequest(common.ActionDeleteDisk, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
@@ -120,7 +120,7 @@ func GetDiskInfo(args *DiskInfoArgs) (*DiskInfoResponse, error) {
 		return nil, err
 	}
 
-	req, err := common.NewCCKRequest(common.ActionFindDiskByVolumeID, http.MethodPost, nil, body)
+	req, err := common.NewCCSRequest(common.ActionFindDiskByVolumeID, http.MethodPost, nil, body)
 
 	response, err := common.DoRequest(req)
 	if err != nil {
