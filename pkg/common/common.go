@@ -12,12 +12,14 @@ const (
 	accessKeySecretLiteral = "ACCESS_KEY_SECRET"
 	overseaFlag            = "CDS_OVERSEA"
 	cckProductType         = "cck"
+	ccsProductType         = "ccs"
 	ebsProductType         = "ebs/v1"
 	ecsProductType         = "ecs/v1"
 	version                = "2019-08-08"
 	signatureVersion       = "1.0"
 	signatureMethod        = "HMAC-SHA1"
 	timeStampFormat        = "2006-01-02T15:04:05Z"
+	clusterName            = "CLUSTER_NAME"
 )
 
 const (
@@ -58,6 +60,7 @@ var (
 	APIHost         string
 	AccessKeyID     string
 	AccessKeySecret string
+	ClusterName     string
 )
 
 func init() {
@@ -77,6 +80,10 @@ func init() {
 		if os.Getenv(overseaFlag) == "True" {
 			APIHost = defaultApiHostOversea
 		}
+	}
+
+	if ClusterName == "" {
+		ClusterName = os.Getenv(clusterName)
 	}
 }
 

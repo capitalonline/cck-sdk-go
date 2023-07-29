@@ -28,6 +28,10 @@ func NewCCKRequest(action, method string, params map[string]string, body io.Read
 	return NewRequest(action, method, params, cckProductType, body)
 }
 
+func NewCCSRequest(action, method string, params map[string]string, body io.Reader) (*CloudRequest, error) {
+	return NewRequest(action, method, params, ccsProductType, body)
+}
+
 func NewEbsRequest(action, method string, params map[string]string, body io.Reader) (*CloudRequest, error) {
 	return NewRequest(action, method, params, ebsProductType, body)
 }
