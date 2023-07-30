@@ -14,6 +14,7 @@ const (
 	ActionAttachDisk = "CsiAttachDisk"
 	ActionDetachDisk = "CsiDetachDisk"
 	ActionDiskStatus = "CsiDiskInfo"
+	ActionDiskCount  = "CsiDiskCount"
 )
 
 func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
@@ -131,6 +132,30 @@ func GetDiskInfo(args *DiskInfoArgs) (*DiskInfoResponse, error) {
 	}
 
 	res := &DiskInfoResponse{}
+	err = json.Unmarshal(content, res)
+
+	return res, err
+}
+
+func GetDiskInfo(args *DiskCountArgs) (*DiskCountResponse, error) {
+	body, err := common.MarshalJsonToIOReader(args)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := common.NewCCSRequest(ActionDiskCount, http.MethodPost, nil, body)
+
+	response, err := common.DoRequest(req)
+	if err != nil {
+		return nil, err
+	}
+
+	content, err := ioutil.ReadAll(response.Body)
+	if response.StatusCode >= 400 {
+		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
+	}
+
+	res := &DiskCountResponse{}
 	err = json.Unmarshal(content, res)
 
 	return res, err

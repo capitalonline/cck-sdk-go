@@ -68,3 +68,14 @@ type DescribeTaskStatusResponse struct {
 		Status string `json:"status"`
 	} `json:"Data"`
 }
+
+type DiskCountArgs struct {
+	NodeID string `json:"VM_ID"`
+}
+
+type DiskCountResponse struct {
+	Response
+	Data struct {
+		DiskCount string `json:"disk_count"`
+	} `json:"Data"`
+}
