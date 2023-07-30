@@ -1,4 +1,4 @@
-package vmwaredisk
+package ccsdisk
 
 type Response struct {
 	Code     string `json:"Code"`
@@ -7,8 +7,8 @@ type Response struct {
 }
 
 type AttachDiskArgs struct {
-	VolumeID string `json:"block_id"`
-	NodeID   string `json:"node_id"`
+	VolumeID string `json:"UUID"`
+	NodeID   string `json:"VM_ID"`
 }
 type AttachDiskResponse struct {
 	Response
@@ -16,7 +16,8 @@ type AttachDiskResponse struct {
 }
 
 type DetachDiskArgs struct {
-	VolumeID string `json:"block_id"`
+	VolumeID string `json:"UUID"`
+	NodeID   string `json:"VM_ID"`
 }
 type DetachDiskResponse struct {
 	Response
@@ -24,37 +25,39 @@ type DetachDiskResponse struct {
 }
 
 type DeleteDiskArgs struct {
-	VolumeID string `json:"block_id"`
+	VolumeID string `json:"UUID"`
 }
 type DeleteDiskResponse struct {
 	Response
-	TaskID string `json:"TaskId"`
+	VolumeID string `json:"disk_id"`
 }
 
 type DiskInfoArgs struct {
-	VolumeID string `json:"block_id"`
+	VolumeID string `json:"UUID"`
 }
 
 type DiskInfoResponse struct {
 	Response
 	Data struct {
-		NodeID   string `json:"node_id"`
+		NodeID   string `json:"vm_id"`
 		Status   string `json:"status"`
-		VolumeId string `json:"disk_uuid"`
+		VolumeId string `json:"disk_id"`
+		Mounted  int    `json:"is_load"`
+		IsValid  int    `json:"is_valid"`
 	} `json:"data"`
 }
 
 type CreateDiskArgs struct {
-	RegionID    string `json:"site_id"`
-	DiskType    string `json:"disk_type"`
-	Size        int    `json:"size"`
-	Iops        int    `json:"iops"`
-	ClusterName string `json:"cluster_name"`
+	RegionID    string `json:"SiteId"`
+	DiskType    string `json:"DiskType"`
+	Size        int    `json:"Size"`
+	Iops        int    `json:"IOPS"`
+	ClusterName string `json:"ClusterName"`
 }
 type CreateDiskResponse struct {
 	Response
 	Data struct {
-		VolumeID string `json:"block_id"`
+		VolumeID string `json:"uuid"`
 	} `json:"Data"`
 	TaskID string `json:"TaskId"`
 }
