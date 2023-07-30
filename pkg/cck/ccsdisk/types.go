@@ -76,6 +76,6 @@ type DiskCountArgs struct {
 type DiskCountResponse struct {
 	Response
 	Data struct {
-		DiskCount string `json:"disk_count"`
+		DiskCount int `json:"disk_count"`
 	} `json:"Data"`
 }
