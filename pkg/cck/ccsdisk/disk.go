@@ -137,7 +137,7 @@ func GetDiskInfo(args *DiskInfoArgs) (*DiskInfoResponse, error) {
 	return res, err
 }
 
-func GetDiskInfo(args *DiskCountArgs) (*DiskCountResponse, error) {
+func GetDiskCount(args *DiskCountArgs) (*DiskCountResponse, error) {
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
 		return nil, err
