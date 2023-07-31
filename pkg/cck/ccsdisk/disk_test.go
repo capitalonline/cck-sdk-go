@@ -96,7 +96,7 @@ func TestDeleteDisk(t *testing.T) {
 		t.Errorf("Failed, err is: %s", err.Error())
 	}
 
-	if res.TaskID == "" {
+	if res.VolumeID == "" {
 		t.Errorf("Failed, [TaskID] is empty, but expectation is not empty")
 	}
 }

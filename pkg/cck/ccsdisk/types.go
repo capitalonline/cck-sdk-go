@@ -39,11 +39,12 @@ type DiskInfoArgs struct {
 type DiskInfoResponse struct {
 	Response
 	Data struct {
-		NodeID   string `json:"vm_id"`
-		Status   string `json:"status"`
-		VolumeId string `json:"disk_id"`
-		Mounted  int    `json:"is_load"`
-		IsValid  int    `json:"is_valid"`
+		NodeID     string `json:"vm_id"`
+		Status     string `json:"status"`
+		TaskStatus string `json:"res_status"`
+		VolumeId   string `json:"disk_id"`
+		Mounted    int    `json:"is_load"`
+		IsValid    int    `json:"is_valid"`
 	} `json:"data"`
 }
 
