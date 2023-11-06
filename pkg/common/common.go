@@ -15,44 +15,10 @@ const (
 	ccsProductType         = "ccs"
 	ebsProductType         = "ebs/v1"
 	ecsProductType         = "ecs/v1"
-	version                = "2019-08-08"
+	version                = "2023-11-06"
 	signatureVersion       = "1.0"
 	signatureMethod        = "HMAC-SHA1"
 	timeStampFormat        = "2006-01-02T15:04:05Z"
-)
-
-const (
-	// Nas
-	ActionDescribeNasInstances = "DescribeNasInstances"
-	ActionMountNas             = "MountNas"
-	ActionUmountNas            = "UmountNas"
-	ActionCreateNas            = "CreateNas"
-	ActionResizeNas            = "ResizeNas"
-	ActionDeleteNas            = "DeleteNas"
-	ActionTaskStatus           = "CheckNasTaskStatus"
-
-	// Disk
-	ActionCreateDisk         = "CreateBlock"
-	ActionAttachDisk         = "AttachBlock"
-	ActionDetachDisk         = "DetachBlock"
-	ActionDeleteDisk         = "DeleteBlock"
-	ActionFindDiskByVolumeID = "DescribeBlock"
-	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
-	ActionUpdateBlock        = "UpdateBlock"
-
-	// Ebs
-	ActionCreateEbs         = "CreateDisk"
-	ActionDescribeEvent     = "DescribeEvent"
-	ActionDeleteEbs         = "DeleteDisk"
-	ActionAttachEbs         = "AttachDisk"
-	ActionDetachEbs         = "DetachDisk"
-	ActionDescribeEbs       = "DescribeDisk"
-	ActionExtendEbs         = "ExtendDisk"
-	ActionDescribeDiskQuota = "DescribeDiskQuota"
-
-	ActionDescribeInstance = "DescribeInstance"
-
-	EbsSuccessCode = "Success"
 )
 
 var (

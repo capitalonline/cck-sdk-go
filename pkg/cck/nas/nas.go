@@ -1,4 +1,4 @@
-package cck
+package nas
 
 import (
 	"encoding/json"
@@ -211,8 +211,8 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 
 func DescribeNasUsage(ClusterId, NasIP string) (*DescribeNasInstancesResponse, error) {
 	payload := struct {
-		MountPoint string`json:"MountPoint"`
-		ClusterID  string`json:"ClusterId"`
+		MountPoint string `json:"MountPoint"`
+		ClusterID  string `json:"ClusterId"`
 	}{
 		NasIP,
 		ClusterId,

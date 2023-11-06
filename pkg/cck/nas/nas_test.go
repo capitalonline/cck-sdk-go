@@ -1,4 +1,4 @@
-package cck
+package nas
 
 import "testing"
 
@@ -30,7 +30,7 @@ func TestDescribeNasInstances(t *testing.T) {
 	}
 }
 
-func TestCreateNas(t *testing.T){
+func TestCreateNas(t *testing.T) {
 	// nasSiteID, nasName, diskType, diskSize string
 	nasSiteID := "c4089dcd-15c2-4caf-9d1e-874770a31880"
 	nasName := "test-go-sdk"
@@ -70,7 +70,7 @@ func TestUnMountNas(t *testing.T) {
 	}
 }
 
-func TestResizeNas(t *testing.T){
+func TestResizeNas(t *testing.T) {
 	// nasSiteID, nasID, diskSize string
 	nasSiteID := "c4089dcd-15c2-4caf-9d1e-874770a31880"
 	nasID := "340d569c-7899-11ea-a06c-82b0d54620aa"

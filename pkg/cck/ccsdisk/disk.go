@@ -8,15 +8,6 @@ import (
 	"net/http"
 )
 
-const (
-	ActionCreateDisk = "CsiCreateDisk"
-	ActionDeleteDisk = "CsiDeleteDisk"
-	ActionAttachDisk = "CsiAttachDisk"
-	ActionDetachDisk = "CsiDetachDisk"
-	ActionDiskStatus = "CsiDiskInfo"
-	ActionDiskCount  = "CsiDiskCount"
-)
-
 func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
 	body, err := common.MarshalJsonToIOReader(args)
 	if err != nil {
