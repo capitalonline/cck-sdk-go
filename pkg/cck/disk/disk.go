@@ -3,9 +3,10 @@ package disk
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/capitalonline/cck-sdk-go/pkg/common"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/capitalonline/cck-sdk-go/pkg/common"
 )
 
 func CreateDisk(args *CreateDiskArgs) (*CreateDiskResponse, error) {
@@ -200,6 +201,30 @@ func UpdateBlockFormatFlag(args *UpdateBlockFormatFlagArgs) (*UpdateBlockFormatF
 	}
 
 	res := &UpdateBlockFormatFlagResponse{}
+	err = json.Unmarshal(content, res)
+
+	return res, err
+}
+
+func DescribeClusterNodePvInfo(args *DescribeClusterNodePvInfoArgs) (*DescribeClusterNodePvInfoResponse, error) {
+	body, err := common.MarshalJsonToIOReader(args)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := common.NewCCKRequest(common.ActionDescribeClusterNodePvInfo, http.MethodPost, nil, body)
+
+	response, err := common.DoRequest(req)
+	if err != nil {
+		return nil, err
+	}
+
+	content, err := ioutil.ReadAll(response.Body)
+	if response.StatusCode >= 400 {
+		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
+	}
+
+	res := &DescribeClusterNodePvInfoResponse{}
 	err = json.Unmarshal(content, res)
 
 	return res, err

@@ -89,3 +89,21 @@ type UpdateBlockFormatFlagArgs struct {
 type UpdateBlockFormatFlagResponse struct {
 	Response
 }
+
+type TopologyInfo struct {
+	ID     string `json:"Id"`
+	Region string `json:"RegionId"`
+	Zone   string `json:"ZoneId"`
+}
+
+type DescribeClusterNodePvInfoArgs struct {
+	ClusterID string `json:"ClusterId"`
+}
+
+type DescribeClusterNodePvInfoResponse struct {
+	Response
+	Data struct {
+		DiskTopology []TopologyInfo `json:"DiskTopology"`
+		NodeTopology []TopologyInfo `json:"NodeTopology"`
+	} `json:"Data"`
+}
