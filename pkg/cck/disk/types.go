@@ -91,19 +91,19 @@ type UpdateBlockFormatFlagResponse struct {
 }
 
 type TopologyInfo struct {
-	ID     string `json:"Id"`
-	Region string `json:"RegionId"`
-	Zone   string `json:"ZoneId"`
+	ID     string `json:"id"`
+	Region string `json:"site_id"`
+	Zone   string `json:"zone_id"`
 }
 
 type DescribeClusterNodePvInfoArgs struct {
-	ClusterID string `json:"ClusterId"`
+	ClusterID string `json:"cluster_id"`
 }
 
 type DescribeClusterNodePvInfoResponse struct {
 	Response
 	Data struct {
-		DiskTopology []TopologyInfo `json:"DiskTopology"`
-		NodeTopology []TopologyInfo `json:"NodeTopology"`
+		DiskTopology []TopologyInfo `json:"disk_topology"`
+		NodeTopology []TopologyInfo `json:"node_topology"`
 	} `json:"Data"`
 }
