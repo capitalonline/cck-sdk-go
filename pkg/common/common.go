@@ -32,13 +32,14 @@ const (
 	ActionTaskStatus           = "CheckNasTaskStatus"
 
 	// Disk
-	ActionCreateDisk         = "CreateBlock"
-	ActionAttachDisk         = "AttachBlock"
-	ActionDetachDisk         = "DetachBlock"
-	ActionDeleteDisk         = "DeleteBlock"
-	ActionFindDiskByVolumeID = "DescribeBlock"
-	ActionDiskTaskStatus     = "CheckBlockTaskStatus"
-	ActionUpdateBlock        = "UpdateBlock"
+	ActionCreateDisk                = "CreateBlock"
+	ActionAttachDisk                = "AttachBlock"
+	ActionDetachDisk                = "DetachBlock"
+	ActionDeleteDisk                = "DeleteBlock"
+	ActionFindDiskByVolumeID        = "DescribeBlock"
+	ActionDiskTaskStatus            = "CheckBlockTaskStatus"
+	ActionUpdateBlock               = "UpdateBlock"
+	ActionDescribeClusterNodePvInfo = "DescribeClusterNodePvInfo"
 
 	// Ebs
 	ActionCreateEbs         = "CreateDisk"
