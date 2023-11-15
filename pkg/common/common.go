@@ -54,6 +54,9 @@ const (
 	ActionDescribeInstance = "DescribeInstance"
 
 	EbsSuccessCode = "Success"
+
+	// Alarm
+	ActionSendAlarm = "SendAlarm"
 )
 
 var (
