@@ -193,7 +193,7 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 	res := &DescribeTaskStatusResponse{}
 	err = json.Unmarshal(content, res)
 	if res.Code != common.EbsSuccessCode {
-		return nil, errors.New(fmt.Sprintf("%s request failed,msg:%s", common.ActionCreateEbs, res.Message))
+		return res, errors.New(fmt.Sprintf("%s request failed,msg:%s", common.ActionCreateEbs, res.Message))
 	}
 	return res, err
 }
