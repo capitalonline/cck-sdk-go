@@ -184,16 +184,21 @@ func DescribeTaskStatus(TaskID string) (*DescribeTaskStatusResponse, error) {
 	if err != nil {
 		return nil, err
 	}
+	res := &DescribeTaskStatusResponse{}
 
 	content, err := io.ReadAll(response.Body)
+	if err != nil {
+		return res, fmt.Errorf("http error:%s,err:%v", response.Status, err)
+	}
 	if response.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("http error:%s, %s", response.Status, string(content))
+		// try to unmarshal
+		err = json.Unmarshal(content, res)
+		return res, fmt.Errorf("http error:%s, %s ,err:%v", response.Status, string(content), err)
 	}
 
-	res := &DescribeTaskStatusResponse{}
 	err = json.Unmarshal(content, res)
 	if res.Code != common.EbsSuccessCode {
-		return nil, errors.New(fmt.Sprintf("%s request failed,msg:%s", common.ActionCreateEbs, res.Message))
+		return res, errors.New(fmt.Sprintf("%s request failed,msg:%s", common.ActionCreateEbs, res.Message))
 	}
 	return res, err
 }
